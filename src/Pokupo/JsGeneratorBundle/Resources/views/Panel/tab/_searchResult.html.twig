@@ -1,0 +1,169 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'advancedSearch.result.title'|trans }}</h2>
+
+        <input type="checkbox" id="formAdvancedSearchResultShowCart"
+               name="form.advancedSearch.result.showCart"
+               ng-model="form.advancedSearch.result.showCart" class="ng-hide"/>
+
+        <div class="media">
+            <hr ng-show="form.typeSettings.id == 3"/>
+            <div class="form-group" ng-class="{true: 'has-error'}[error.advancedSearch.result.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+                <label class="control-label"
+                       for="form.advancedSearch.result.containerId">{{ 'advancedSearch.result.containerId.label'|trans }}</label>
+                <input class="form-control" type="text" id="formAdvancedSearchResultContainerId"
+                       name="form.advancedSearch.result.containerId" ng-model="form.advancedSearch.result.containerId">
+
+                <p class="help-block error" ng-show="!error.advancedSearch.result.containerId.valid">*
+                    {% verbatim %}
+                    {{ error.advancedSearch.result.containerId.message }}
+                    {% endverbatim %}
+                </p>
+
+                <p class="help-block">{{ 'advancedSearch.result.containerId.help'|trans }}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group"
+                         ng-class="{true: 'has-error'}[error.advancedSearch.result.listPerPage.valid == false]">
+                        <label class="control-label"
+                               for="form.advancedSearch.result.listPerPage">{{ 'advancedSearch.result.listPerPage.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formAdvancedSearchResultListPerPage"
+                               name="form.advancedSearch.result.listPerPage"
+                               ng-model="form.advancedSearch.result.listPerPage">
+
+                        <p class="help-block error" ng-show="!error.advancedSearch.result.listPerPage.valid">*
+                            {% verbatim %}
+                            {{ error.advancedSearch.result.listPerPage.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'advancedSearch.result.listPerPage.help'|trans }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group"
+                         ng-class="{true: 'has-error'}[error.advancedSearch.result.defaultPerPage.valid == false]">
+                        <label class="control-label"
+                               for="form.advancedSearch.result.defaultPerPage">{{ 'advancedSearch.result.defaultPerPage.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formAdvancedSearchResultDefaultPerPage"
+                               name="form.advancedSearch.result.defaultPerPage"
+                               ng-model="form.advancedSearch.result.defaultPerPage">
+
+                        <p class="help-block error" ng-show="!error.advancedSearch.result.defaultPerPage.valid">*
+                            {% verbatim %}
+                            {{ error.advancedSearch.result.defaultPerPage.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'advancedSearch.result.defaultPerPage.help'|trans }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="checkbox" ng-show="form.typeSettings.id == 3">
+                <label>
+                    <input type="checkbox" id="formAdvancedSearchResultUseCustomTmpl"
+                           name="form.advancedSearch.result.useCustomTmpl"
+                           ng-model="form.advancedSearch.result.useCustomTmpl">{{ 'advancedSearch.result.useCustomTmpl.label'|trans }}
+                </label>
+            </div>
+            <div ng-show="form.advancedSearch.result.useCustomTmpl">
+                <fieldset>
+                    <div class="form-group"
+                         ng-class="{true: 'has-error'}[error.advancedSearch.result.pathTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.advancedSearch.result.pathTmpl">{{ 'advancedSearch.result.pathTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formAdvancedSearchResultPathTmpl"
+                               name="form.advancedSearch.result.pathTmpl"
+                               ng-model="form.advancedSearch.result.pathTmpl">
+
+                        <p class="help-block error" ng-show="!error.advancedSearch.result.pathTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.advancedSearch.result.pathTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'advancedSearch.result.pathTmpl.help'|trans }}</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group"
+                                 ng-class="{true: 'has-error'}[error.advancedSearch.result.idTmpl.table.valid == false]">
+                                <label class="control-label"
+                                       for="form.advancedSearch.result.idTmpl.table">{{ 'advancedSearch.result.idTmpl.table.label'|trans }}</label>
+                                <input class="form-control" type="text" id="formAdvancedSearchResultIdTmplTable"
+                                       name="form.advancedSearch.result.idTmpl.table"
+                                       ng-model="form.advancedSearch.result.idTmpl.table">
+
+                                <p class="help-block error" ng-show="!error.advancedSearch.result.idTmpl.table.valid">*
+                                    {% verbatim %}
+                                    {{ error.advancedSearch.result.idTmpl.table.message }}
+                                    {% endverbatim %}
+                                </p>
+
+                                <p class="help-block">{{ 'advancedSearch.result.idTmpl.table.help'|trans }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group"
+                                 ng-class="{true: 'has-error'}[error.advancedSearch.result.idTmpl.list.valid == false]">
+                                <label class="control-label"
+                                       for="form.advancedSearch.result.idTmpl.list">{{ 'advancedSearch.result.idTmpl.list.label'|trans }}</label>
+                                <input class="form-control" type="text" id="formAdvancedSearchResultIdTmplList"
+                                       name="form.advancedSearch.result.idTmpl.list"
+                                       ng-model="form.advancedSearch.result.idTmpl.list">
+
+                                <p class="help-block error" ng-show="!error.advancedSearch.result.idTmpl.list.valid">*
+                                    {% verbatim %}
+                                    {{ error.advancedSearch.result.idTmpl.list.message }}
+                                    {% endverbatim %}
+                                </p>
+
+                                <p class="help-block">{{ 'advancedSearch.result.idTmpl.list.help'|trans }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group"
+                                 ng-class="{true: 'has-error'}[error.advancedSearch.result.idTmpl.tile.valid == false]">
+                                <label class="control-label"
+                                       for="form.advancedSearch.result.idTmpl.tile">{{ 'advancedSearch.result.idTmpl.tile.label'|trans }}</label>
+                                <input class="form-control" type="text" id="formAdvancedSearchResultIdTmplTile"
+                                       name="form.advancedSearch.result.idTmpl.tile"
+                                       ng-model="form.advancedSearch.result.idTmpl.tile">
+
+                                <p class="help-block error" ng-show="!error.advancedSearch.result.idTmpl.tile.valid">*
+                                    {% verbatim %}
+                                    {{ error.advancedSearch.result.idTmpl.tile.message }}
+                                    {% endverbatim %}
+                                </p>
+
+                                <p class="help-block">{{ 'advancedSearch.result.idTmpl.tile.help'|trans }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group"
+                                 ng-class="{true: 'has-error'}[error.advancedSearch.result.idTmpl.empty.valid == false]">
+                                <label class="control-label"
+                                       for="form.advancedSearch.result.idTmpl.empty">{{ 'advancedSearch.result.idTmpl.empty.label'|trans }}</label>
+                                <input class="form-control" type="text" id="formAdvancedSearchResultIdTmplEmpty"
+                                       name="form.advancedSearch.result.idTmpl.empty"
+                                       ng-model="form.advancedSearch.result.idTmpl.empty">
+
+                                <p class="help-block error" ng-show="!error.advancedSearch.result.idTmpl.empty.valid">*
+                                    {% verbatim %}
+                                    {{ error.advancedSearch.result.idTmpl.empty.message }}
+                                    {% endverbatim %}
+                                </p>
+
+                                <p class="help-block">{{ 'advancedSearch.result.idTmpl.empty.help'|trans }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

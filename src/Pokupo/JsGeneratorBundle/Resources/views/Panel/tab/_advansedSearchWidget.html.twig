@@ -1,0 +1,71 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'advancedSearch.form.title'|trans }}</h2>
+
+        <input type="checkbox" id="formAdvancedSearchFormShowCatalog"
+               name="form.advancedSearch.form.showCatalog"
+               ng-model="form.advancedSearch.form.showCatalog" class="ng-hide"/>
+
+        <div class="media">
+            <div class="form-group" ng-class="{true: 'has-error'}[error.advancedSearch.form.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+                <label class="control-label"
+                       for="form.advancedSearch.form.containerId">{{ 'advancedSearch.form.containerId.label'|trans }}</label>
+                <input class="form-control" type="text" id="formAdvancedSearchFormContainerId"
+                       name="form.advancedSearch.form.containerId" ng-model="form.advancedSearch.form.containerId">
+
+                <p class="help-block error" ng-show="!error.advancedSearch.form.containerId.valid">*
+                    {% verbatim %}
+                    {{ error.advancedSearch.form.containerId.message }}
+                    {% endverbatim %}
+                </p>
+
+                <p class="help-block">{{ 'advancedSearch.form.containerId.help'|trans }}</p>
+            </div>
+            <div class="checkbox" ng-show="form.typeSettings.id == 3">
+                <label>
+                    <input type="checkbox" id="formAdvancedSearchFormUseCustomTmpl"
+                           name="form.advancedSearch.form.useCustomTmpl"
+                           ng-model="form.advancedSearch.form.useCustomTmpl">{{ 'advancedSearch.form.useCustomTmpl.label'|trans }}
+                </label>
+            </div>
+            <div ng-show="form.advancedSearch.form.useCustomTmpl">
+                <fieldset>
+                    <div class="form-group"
+                         ng-class="{true: 'has-error'}[error.advancedSearch.form.pathTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.advancedSearch.form.pathTmpl">{{ 'advancedSearch.form.pathTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formAdvancedSearchFormPathTmpl"
+                               name="form.advancedSearch.form.pathTmpl" ng-model="form.advancedSearch.form.pathTmpl">
+
+                        <p class="help-block error" ng-show="!error.advancedSearch.form.pathTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.advancedSearch.form.pathTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'advancedSearch.form.pathTmpl.help'|trans }}</p>
+                    </div>
+                    <div class="form-group"
+                         ng-class="{true: 'has-error'}[error.advancedSearch.form.idTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.advancedSearch.form.idTmpl">{{ 'advancedSearch.form.idTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formAdvancedSearchFormIdTmpl"
+                               name="form.advancedSearch.form.idTmpl" ng-model="form.advancedSearch.form.idTmpl">
+
+                        <p class="help-block error" ng-show="!error.advancedSearch.form.idTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.advancedSearch.form.idTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

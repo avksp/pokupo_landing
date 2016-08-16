@@ -1,0 +1,94 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'registration.title'|trans }}</h2>
+
+        <div class="form-group" ng-class="{true: 'has-error'}[error.registration.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.registration.containerId">{{ 'registration.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formRegistrationContainerId" name="form.registration.containerId"
+                   ng-model="form.registration.containerId">
+            <p class="help-block error" ng-show="!error.registration.containerId.valid">*
+                {% verbatim %}
+                {{ error.registration.containerId.message }}
+                {% endverbatim %}
+            </p>
+            <p class="help-block">{{ 'registration.containerId.help'|trans }}</p>
+        </div>
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formRegistrationUseCustomTmpl" name="form.registration.useCustomTmpl"
+                       ng-model="form.registration.useCustomTmpl">{{ 'registration.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.registration.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.registration.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.registration.pathTmpl">{{ 'registration.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formRegistrationPathTmpl" name="form.registration.pathTmpl"
+                           ng-model="form.registration.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.registration.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.registration.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'registration.pathTmpl.help'|trans }}</p>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.registration.idTmpl.step1.valid == false]">
+                            <label class="control-label" for="form.registration.idTmpl.step1">{{ 'registration.idTmpl.step1.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formRegistrationIdTmplStep1" name="form.registration.idTmpl.step1" ng-model="form.registration.idTmpl.step1">
+                            <p class="help-block error" ng-show="!error.registration.idTmpl.step1.valid">*
+                                {% verbatim %}
+                                {{ error.registration.idTmpl.step1.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.registration.idTmpl.step2.valid == false]">
+                            <label class="control-label" for="form.registration.idTmpl.step2">{{ 'registration.idTmpl.step2.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formRegistrationIdTmplStep2" name="form.registration.idTmpl.step2" ng-model="form.registration.idTmpl.step2">
+                            <p class="help-block error" ng-show="!error.registration.idTmpl.step2.valid">*
+                                {% verbatim %}
+                                {{ error.registration.idTmpl.step2.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.registration.idTmpl.step3.valid == false]">
+                            <label class="control-label" for="form.registration.idTmpl.step3">{{ 'registration.idTmpl.step3.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formRegistrationIdTmplStep3" name="form.registration.idTmpl.step3" ng-model="form.registration.idTmpl.step3">
+                            <p class="help-block error" ng-show="!error.registration.idTmpl.step3.valid">*
+                                {% verbatim %}
+                                {{ error.registration.idTmpl.step3.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.registration.idTmpl.step4.valid == false]">
+                            <label class="control-label" for="form.registration.idTmpl.step4">{{ 'registration.idTmpl.step4.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formRegistrationIdTmplStep4" name="form.registration.idTmpl.step4" ng-model="form.registration.idTmpl.step4">
+                            <p class="help-block error" ng-show="!error.registration.idTmpl.step4.valid">*
+                                {% verbatim %}
+                                {{ error.registration.idTmpl.step4.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

@@ -1,0 +1,7 @@
+{% extends_admingenerated "PokupoBlogBundle:CommentList:row.html.twig" %}
+
+{% block list_td_column_post %}
+    <a href="{{ path('Pokupo_BlogBundle_Post_edit', {'pk': Comment.post.id}) }}">
+        {{ Comment.post }}
+    </a>
+{% endblock list_td_column_post %}

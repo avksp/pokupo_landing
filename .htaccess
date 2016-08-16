@@ -1,0 +1,7 @@
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css)$">
+  Header add Access-Control-Allow-Origin "*"
+  Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+  Header add Access-Control-Allow-Methods "GET"
+  </FilesMatch>
+</IfModule>

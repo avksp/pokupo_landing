@@ -1,0 +1,19 @@
+{% extends 'PokupoLandingBundle:Templates:base.html.twig' %}
+{% block topMenu %}
+  {% render(controller( "PokupoMenuBundle:Menu:topMenu", {"menu" : "top_menu", "alias" : 'blog'})) %}
+{% endblock %}
+
+{% block body %}
+<section class="events">
+  <div class="container">
+    <div class="document">
+      <h1>Спасибо</h1>
+    <p>
+      Мы получили ваш комментарий.
+      Просмотреть последние оставленные сообщения.
+    </p>
+    {{ render(controller('PokupoBlogBundle:Widget:latestPost')) }}
+    </div>
+  </div>
+</section>
+{% endblock %}

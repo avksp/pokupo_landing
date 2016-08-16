@@ -1,0 +1,60 @@
+{% extends_admingenerated "PokupoLandingBundle:ContentEdit:form.html.twig" %}
+
+{% form_theme form.is_active "PokupoLandingBundle:Form:choice_widget.html.twig" %}
+
+{#{% form_theme form.show_editor_content "PokupoLandingBundle:Form:choice_widget.html.twig" %}#}
+
+{% block form_fieldset_Base %}
+    <br/>
+    <fieldset class="container-fluid form_block form_fieldset_Base tab-pane">
+
+        <div class="row">
+            <div class="col-md-4 form_field field_text field_title">
+                {% block form_title %}
+                    {{ form_row(form['title']) }}
+                {% endblock form_title %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form_field field_text field_alias">
+                {% block form_alias %}
+                    {{ form_row(form['alias']) }}
+                {% endblock form_alias %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form_field field_text field_anons">
+                {% block form_anons %}
+                    {{ form_row(form['anons']) }}
+                {% endblock form_anons %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form_field field_textarea field_content">
+                {% block form_content %}
+                    {{ form_row(form['content']) }}
+                {% endblock form_content %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form_field field_checkbox field_is_active">
+                {% block form_is_active %}
+                    {{ form_row(form['is_active']) }}
+                {% endblock form_is_active %}
+            </div>
+        </div>
+    </fieldset>
+{% endblock form_fieldset_Base %}
+
+{% block form_fieldset_Meta %}
+    <br/>
+    <fieldset class="container-fluid form_block form_fieldset_Meta tab-pane">
+        <div class="row">
+            <div class="col-md-4 form_field field_entity field_meta">
+                {% block form_meta %}
+                    {{ form_widget(form['meta']) }}
+                {% endblock form_meta %}
+            </div>
+        </div>
+    </fieldset>
+{% endblock form_fieldset_Meta %}

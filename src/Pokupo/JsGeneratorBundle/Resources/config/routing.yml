@@ -1,0 +1,18 @@
+pokupo_js_Generator_homepage:
+    path:     /js_generator/{shopId}/
+    defaults: { _controller: PokupoJsGeneratorBundle:Panel:index }
+    methods:  [GET]
+    requirements:
+        shopId:  \d+
+
+pokupo_js_Generator_create:
+    path:     /js_generator/create/
+    defaults: { _controller: PokupoJsGeneratorBundle:Panel:create }
+
+pokupo_js_Generator_get_html:
+    path:     /js_generator/get_html/
+    defaults: { _controller: PokupoJsGeneratorBundle:Panel:getHtml }
+
+pokupo_js_Generator_tmpl_validate:
+    path:     /js_generator/tmpl_validate/
+    defaults: { _controller: PokupoJsGeneratorBundle:Panel:tmplValidate }

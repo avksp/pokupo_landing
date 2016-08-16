@@ -1,0 +1,203 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'choice.title'|trans }}</h2>
+
+        <div class="media">
+            <!-- Базовый виджет -->
+            <h4>
+                <input type="checkbox" checked disabled/>
+                {{ 'choice.baseWidget'|trans }}
+            </h4>
+            <div class="col-md-11 col-md-offset-1">
+                <div class="checkbox">
+                    <label for="form.shopInfo.active">
+                        <input type="checkbox" name="form.shopInfo.active" ng-model="form.shopInfo.active" ng-disabled="form.shopInfo.disabled"/>{{ 'shopInfo.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет реестр товара -->
+                <div class="checkbox">
+                    <label for="form.content.active">
+                        <input type="checkbox" name="form.content.active" ng-model="form.content.active" ng-disabled="form.content.disabled"/>{{ 'content.content.title'|trans }}
+                    </label>
+                </div>
+                <div class="checkbox col-md-offset-1" ng-show="form.catalog.active">
+                    <!-- Виджет промо-блоки -->
+                    <label for="form.content.block.showBlocks">
+                        <input type="checkbox"  name="form.content.block.showBlocks"
+                               ng-model="form.content.block.showBlocks" ng-disabled="form.content.block.disabled"/>{{ 'content.block.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет рубрикатор -->
+                <div class="checkbox">
+                    <label for="form.catalog.active">
+                        <input type="checkbox" name="form.catalog.active" ng-model="form.catalog.active" ng-change="Event.catalog.ChangeActive()"
+                               ng-disabled="form.catalog.disabled"/>{{ 'catalog.title'|trans }}
+                    </label>
+                </div>
+                <div class="checkbox col-md-offset-1" ng-show="form.catalog.active">
+                    <!-- Виджет хлебные крошки -->
+                    <label for="form.breadcrumbs.active">
+                        <input type="checkbox"  name="form.breadcrumbs.active"
+                               ng-model="form.breadcrumbs.active" ng-disabled="form.breadcrumbs.disabled"/>{{ 'breadcrumbs.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет карточка товара -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form.goods.active"
+                               ng-model="form.goods.active" ng-disabled="form.goods.disabled"/>{{ 'goods.title'|trans }}
+                    </label>
+                </div>
+                <div class="checkbox col-md-offset-1" ng-show="form.goods.active">
+                    <label>
+                        <input type="checkbox" name="form.goods.related.active"
+                               ng-model="form.goods.related.active" ng-disabled="form.goods.related.disabled"/>{{ 'relatedGoods.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет оформления заказа -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="form.order.active"
+                               ng-model="form.order.active" ng-disabled="form.order.disabled"/>{{ 'order.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет оплаты заказа -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="form.payment.active"
+                               ng-model="form.payment.active" ng-disabled="form.payment.disabled"/>{{ 'payment.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет корзины покупателя -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="form.cartGoods.active" ng-change="Event.cartGoods.ChangeActive()"
+                               ng-model="form.cartGoods.active" ng-disabled="form.cartGoods.disabled">{{ 'cartGoods.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет регистрация пользователя -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="form.registration.active"
+                               ng-model="form.registration.active" ng-disabled="form.registration.disabled">{{ 'registration.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет регистрация продавца -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="form.registrationSeller.active" ng-change="Event.registrationSeller.ChangeActive()"
+                               ng-model="form.registrationSeller.active" ng-disabled="form.registrationSeller.disabled">{{ 'registrationSeller.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет авторизации -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="form.authentication.active"
+                               ng-model="form.authentication.active" ng-disabled="form.authentication.disabled">{{ 'authentication.title'|trans }}
+                    </label>
+                </div>
+                <!-- Комплексный виджет Кабинет покупателя -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="form.profileCabinetWidget.active" ng-change="Event.SelectProfileWidget()"
+                               ng-model="form.profileCabinetWidget.active" ng-disabled="form.profileCabinetWidget.disabled">
+                        {{ 'profileCabinet.title'|trans }}
+                    </label>
+                </div>
+                <div class="col-md-offset-1" ng-show="form.profileCabinetWidget.active">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  name="form.menuCabinet.active"
+                                   ng-model="form.menuCabinet.active" ng-disabled="form.menuCabinet.disabled">{{ 'menuCabinet.title'|trans }}
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  name="form.profile.active"
+                                   ng-model="form.profile.active" ng-disabled="form.profile.disabled">{{ 'profile.title'|trans }}
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  name="form.cartGoodsCabinet.active"
+                                   ng-model="form.cartGoodsCabinet.active" ng-disabled="form.cartGoodsCabinet.disabled">{{ 'cartGoodsCabinet.title'|trans }}
+                        </label>
+                    </div>
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  name="form.orderList.active"
+                                   ng-model="form.orderList.active" ng-disabled="form.orderList.disabled">{{ 'orderList.title'|trans }}
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  name="form.favorites.active"
+                                   ng-model="form.favorites.active" ng-disabled="form.favorites.disabled">{{ 'favorites.title'|trans }}
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  name="form.message.active"
+                                   ng-model="form.message.active" ng-disabled="form.message.disabled">{{ 'message.title'|trans }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Виджет информеров -->
+            <h4>
+                <input type="checkbox"  name="form.infoWidget.active" ng-disabled="form.infoWidget.disabled" ng-change="Event.SelectInfoWidget()"
+                       ng-model="form.infoWidget.active">
+                {{ 'choice.infoWidget'|trans }}
+            </h4>
+            <div class="col-md-offset-1" ng-show="form.infoWidget.active">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="form.cartInfo.active" ng-disabled="form.cartInfo.disabled"
+                               ng-model="form.cartInfo.active">{{ 'cartInfo.title'|trans }}
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="form.userInfo.active" ng-disabled="form.userInfo.disabled"
+                               ng-model="form.userInfo.active">{{ 'userInfo.title'|trans }}
+                    </label>
+                </div>
+            </div>
+
+            <!-- Виджет поиска -->
+            <h4>
+                <input type="checkbox"  name="form.searchWidget.active" ng-disabled="form.searchWidget.disabled"
+                       ng-model="form.searchWidget.active" ng-change="Event.SelectSearchWidget()">
+                {{ 'choice.searchWidget'|trans }}
+            </h4>
+            <div class="col-md-offset-1" ng-show="form.searchWidget.active">
+                <!-- Виджет поиска -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form.search.active"
+                               ng-model="form.search.active" ng-disabled="form.search.disabled">{{ 'search.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет результата поиска-->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form.advancedSearch.active"
+                               ng-model="form.advancedSearch.active" ng-disabled="form.advancedSearch.disabled">{{ 'advancedSearch.result.title'|trans }}
+                    </label>
+                </div>
+                <!-- Виджет расширенного поиска-->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form.advancedSearch.form.showForm"
+                               ng-model="form.advancedSearch.form.showForm" ng-disabled="form.advancedSearch.form.disabled">{{ 'advancedSearch.form.title'|trans }}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

@@ -1,0 +1,22 @@
+{% extends_admingenerated "PokupoBlogBundle:PostNew:form.html.twig" %}
+
+{% block form_fieldset_Content %}
+    <fieldset class="container-fluid form_block form_fieldset_Content tab-pane">
+        <legend><span>{% trans from "Admin" %}Content{% endtrans %}</span></legend>
+
+        <div class="row">
+            <div class="col-md-12 form_field field_textarea field_intro">
+                {% block form_intro %}
+                    {{ form_row(form['intro']) }}
+                {% endblock form_intro %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form_field field_textarea field_content">
+                {% block form_content %}
+                    {{ form_row(form['content']) }}
+                {% endblock form_content %}
+            </div>
+        </div>
+    </fieldset>
+{% endblock form_fieldset_Content %}

@@ -1,0 +1,50 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'typeSettings.title'|trans }}</h2>
+
+        <div class="media">
+            <div class="media-left">
+                <input type="radio" id="formTypeSettings_1" ng-checked="form.typeSettings.id == 1" ng-change="Event.ChangeType()"
+                       name="formTypeSettings" required="required" value="1"
+                       ng-model="form.typeSettings.id">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Генерация по умолчанию</h4>
+
+                <div>Генерация кода магазина по дефолту, используются системные настройки для дефолтной конфигурации.
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="media">
+            <div class="media-left">
+                <input type="radio" id="formTypeSettings_2" ng-checked="form.typeSettings.id == 2" ng-change="Event.ChangeType()"
+                       name="formTypeSettings" required="required" value="2"
+                       ng-model="form.typeSettings.id">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Быстрая настройка</h4>
+
+                <div>Запрашивает какие опционные виджеты нужно включить в сборку, а так же их настройки.</div>
+            </div>
+        </div>
+        <hr/>
+        <div class="media">
+            <div class="media-left">
+                <input type="radio" id="formTypeSettings_3" ng-checked="form.typeSettings.id == 3" ng-change="Event.ChangeType()"
+                       name="formTypeSettings" required="required" value="3"
+                       ng-model="form.typeSettings.id">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Профессиональная настройка</h4>
+
+                <div>Запрашивает какие опционные виджеты нужно включить в сборку, позволяет указать ID контейнеров и
+                    настройки сторонних шаблонов
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

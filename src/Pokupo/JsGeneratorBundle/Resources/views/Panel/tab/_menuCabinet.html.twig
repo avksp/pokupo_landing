@@ -1,0 +1,65 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'menuCabinet.title'|trans }}</h2>
+
+        <input type="checkbox" id="formMenuCabinetShowCart" name="form.menuCabinet.showCart"
+               ng-model="form.menuCabinet.showCart" class="ng-hide"/>
+
+        <input type="checkbox" id="formMenuCabinetShowRegSeller" name="form.menuCabinet.showRegSeller"
+               ng-model="form.menuCabinet.showRegSeller" class="ng-hide"/>
+
+        <div class="form-group" ng-class="{true: 'has-error'}[error.menuCabinet.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.menuCabinet.containerId">{{ 'menuCabinet.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formBreadcrumbsContainerId" name="form.menuCabinet.containerId"
+                   ng-model="form.menuCabinet.containerId">
+
+            <p class="help-block error" ng-show="!error.menuCabinet.containerId.valid">*
+                {% verbatim %}
+                {{ error.menuCabinet.containerId.message }}
+                {% endverbatim %}
+            </p>
+
+            <p class="help-block">{{ 'menuCabinet.containerId.help'|trans }}</p>
+        </div>
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formMenuCabinetUseCustomTmpl" name="form.menuCabinet.useCustomTmpl"
+                       ng-model="form.menuCabinet.useCustomTmpl">{{ 'menuCabinet.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.menuCabinet.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.menuCabinet.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.menuCabinet.pathTmpl">{{ 'menuCabinet.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formBreadcrumbsPathTmpl" name="form.menuCabinet.pathTmpl"
+                           ng-model="form.menuCabinet.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.menuCabinet.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.menuCabinet.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'menuCabinet.pathTmpl.help'|trans }}</p>
+                </div>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.menuCabinet.idTmpl.valid == false]">
+                    <label class="control-label" for="form.menuCabinet.idTmpl">{{ 'menuCabinet.idTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formBreadcrumbsIdTmpl" name="form.menuCabinet.idTmpl"
+                           ng-model="form.menuCabinet.idTmpl">
+
+                    <p class="help-block error" ng-show="!error.menuCabinet.idTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.menuCabinet.idTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+                </div>
+            </fieldset>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

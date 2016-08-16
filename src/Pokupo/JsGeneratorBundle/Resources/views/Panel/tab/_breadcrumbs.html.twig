@@ -1,0 +1,59 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'breadcrumbs.title'|trans }}</h2>
+
+        <div class="form-group" ng-class="{true: 'has-error'}[error.breadcrumbs.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.breadcrumbs.containerId">{{ 'breadcrumbs.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formBreadcrumbsContainerId" name="form.breadcrumbs.containerId"
+                   ng-model="form.breadcrumbs.containerId">
+
+            <p class="help-block error" ng-show="!error.breadcrumbs.containerId.valid">*
+                {% verbatim %}
+                {{ error.breadcrumbs.containerId.message }}
+                {% endverbatim %}
+            </p>
+
+            <p class="help-block">{{ 'breadcrumbs.containerId.help'|trans }}</p>
+        </div>
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formBreadcrumbsUseCustomTmpl" name="form.breadcrumbs.useCustomTmpl"
+                       ng-model="form.breadcrumbs.useCustomTmpl">{{ 'breadcrumbs.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.breadcrumbs.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.breadcrumbs.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.breadcrumbs.pathTmpl">{{ 'breadcrumbs.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formBreadcrumbsPathTmpl" name="form.breadcrumbs.pathTmpl"
+                           ng-model="form.breadcrumbs.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.breadcrumbs.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.breadcrumbs.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'breadcrumbs.pathTmpl.help'|trans }}</p>
+                </div>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.breadcrumbs.idTmpl.valid == false]">
+                    <label class="control-label" for="form.breadcrumbs.idTmpl">{{ 'breadcrumbs.idTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formBreadcrumbsIdTmpl" name="form.breadcrumbs.idTmpl"
+                           ng-model="form.breadcrumbs.idTmpl">
+
+                    <p class="help-block error" ng-show="!error.breadcrumbs.idTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.breadcrumbs.idTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+                </div>
+            </fieldset>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

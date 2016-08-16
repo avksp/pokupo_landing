@@ -1,0 +1,146 @@
+{% if data.typeSettings != 3%}
+    {% if data.theme.id == 1 %}
+<div id="PokupoWidget"></div>
+    {% endif %}
+{% endif %}
+
+{% if data.typeSettings == 3 %}
+    <div>
+        {% if data.shopInfo is defined and data.shopInfo.active %}
+            <!-- ShopInfoWidget -->
+            <div id="{{ data.shopInfo.containerId }}"></div>
+            <!-- end ShopInfoWidget -->
+        {% endif %}
+
+        {% if data.content is defined and data.content.active %}
+            <!-- ContentWidget -->
+            {% if data.content.block.showBlocks %}
+                <!-- promo blocks -->
+                {% for block in data.content.block.containerId %}
+                    <div id="{{ block }}"></div>
+                {% endfor %}
+                <!-- end promo blocks -->
+            {% endif %}
+
+            <div id="{{ data.content.content.containerId }}"></div>
+            <!-- end ContentWidget -->
+        {% endif %}
+
+        {% if data.catalog is defined and data.catalog.active %}
+            <!-- CatalogWidget -->
+            <div id="{{ data.catalog.containerId }}"></div>
+            <!-- end CatalogWidget -->
+        {% endif %}
+
+        {% if data.breadcrumbs is defined and data.breadcrumbs.active %}
+            <!-- BreadcrumbsWidget -->
+            <div id="{{ data.breadcrumbs.containerId }}"></div>
+            <!-- end BreadcrumbsWidget -->
+        {% endif %}
+
+        {% if data.goods is defined and data.goods.active %}
+            <!-- GoodsWidget -->
+            <div id="{{ data.goods.containerId }}"></div>
+            <!-- end GoodsWidget -->
+        {% endif %}
+
+        {% if data.order is defined and data.order.active %}
+            <!-- OrderWidget -->
+            <div id="{{ data.order.containerId }}"></div>
+            <!-- end OrderWidget -->
+        {% endif %}
+
+        {% if data.payment is defined and data.payment.active %}
+            <!-- ButtonPaymentWidget -->
+            <div id="{{ data.payment.containerId }}"></div>
+            <!-- end ButtonPaymentWidget -->
+        {% endif %}
+
+        {% if data.cartGoods is defined and data.cartGoods.active %}
+            <!-- CartGoodsWidget -->
+            <div id="{{ data.cartGoods.containerId }}"></div>
+            <!-- end CartGoodsWidget -->
+        {% endif %}
+
+        {% if data.registration is defined and data.registration.active %}
+            <!-- RegistrationWidget -->
+            <div id="{{ data.registration.containerId }}"></div>
+            <!-- end RegistrationWidget -->
+        {% endif %}
+
+        {% if data.registrationSeller is defined and data.registrationSeller.active %}
+            <!-- RegistrationSellerWidget -->
+            <div id="{{ data.registrationSeller.containerId }}"></div>
+            <!-- end RegistrationSellerWidget -->
+        {% endif %}
+
+        {% if data.authentication is defined and data.authentication.active %}
+            <!-- AuthenticationWidget -->
+            <div id="{{ data.authentication.containerId }}"></div>
+            <!-- end AuthenticationWidget -->
+        {% endif %}
+
+        {% if data.menuCabinet is defined and data.menuCabinet.active %}
+            <!-- MenuPersonalCabinetWidget -->
+            <div id="{{ data.menuCabinet.containerId }}"></div>
+            <!-- end MenuPersonalCabinetWidget -->
+        {% endif %}
+
+        {% if data.profile is defined and data.profile.active %}
+            <!-- ProfileWidget -->
+            <div id="{{ data.profile.containerId }}"></div>
+            <!-- end ProfileWidget -->
+        {% endif %}
+
+        {% if data.cartGoodsCabinet is defined and data.cartGoodsCabinet.active %}
+            <!-- CabinetCartGoodsWidget -->
+            <div id="{{ data.cartGoodsCabinet.containerId }}"></div>
+            <!-- end CabinetCartGoodsWidget -->
+        {% endif %}
+
+        {% if data.orderList is defined and data.orderList.active %}
+            <!-- OrderListWidget -->
+            <div id="{{ data.orderList.containerId }}"></div>
+            <!-- end OrderListWidget -->
+        {% endif %}
+
+        {% if data.favorites is defined and data.favorites.active %}
+            <!-- FavoritesWidget -->
+            <div id="{{ data.favorites.containerId }}"></div>
+            <!-- end FavoritesWidget -->
+        {% endif %}
+
+        {% if data.message is defined and data.message.active %}
+            <!-- MessageWidget -->
+            <div id="{{ data.message.containerId }}"></div>
+            <!-- end MessageWidget -->
+        {% endif %}
+
+        {% if data.cartInfo is defined and data.cartInfo.active %}
+            <!-- CartInfoWidget -->
+            <div id="{{ data.cartInfo.containerId }}"></div>
+            <!-- end CartInfoWidget -->
+        {% endif %}
+
+        {% if data.userInfo is defined and data.userInfo.active %}
+            <!-- UserInfoWidget -->
+            <div id="{{ data.userInfo.containerId }}"></div>
+            <!-- end UserInfoWidget -->
+        {% endif %}
+
+        {% if data.search is defined and data.search.active %}
+            <!-- SearchWidget -->
+            <div id="{{ data.search.containerId }}"></div>
+            <!-- end SearchWidget -->
+        {% endif %}
+
+        {% if data.advancedSearch is defined and data.advancedSearch.active %}
+            <!-- SearchResultWidget -->
+            {% if data.advancedSearch.form.showForm %}
+                <div id="{{ data.advancedSearch.form.containerId }}"></div>
+            {% endif %}
+            <div id="{{ data.advancedSearch.result.containerId }}"></div>
+            <!-- end SearchResultWidget -->
+        {% endif %}
+    </div>
+{% endif %}

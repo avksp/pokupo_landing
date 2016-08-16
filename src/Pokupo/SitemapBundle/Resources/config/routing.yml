@@ -1,0 +1,7 @@
+pokupo_sitemap_edit:
+    path:     /admin/sitemap
+    defaults: { _controller: PokupoSitemapBundle:Edit:index }
+
+pokupo_sitemap_update:
+    path:     /admin/sitemap/update
+    defaults: { _controller: PokupoSitemapBundle:Edit:update }

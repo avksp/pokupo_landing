@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="main">
+    <script type="text/javascript">
+        WParameters = {
+            core: {
+                shopId: 1,                                                 // id магазина
+                host: 'server.pokupo.ru/dev/server/',                      // переопределяем параметр на dev сервер (на продакшен версии этот параметр убрать)
+                pathToData : "dev/server/services/DataProxy.php?query=",   // переопределяем параметр на dev сервер (на продакшен версии этот параметр убрать)
+                pathToPostData : 'dev/server/services/DataPostProxy.php',  // переопределяем параметр на dev сервер (на продакшен версии этот параметр убрать)
+                pathToTmpl: 'promodev.pokupo.ru/themes/',
+                hostApi : 'dev.pokupo.ru/api/',                            // api (переопределяем параметр на dev сервер) (на продакшен версии этот параметр убрать)
+                hostPromo: 'https://promodev.pokupo.ru/',                         // url промосайта необходим для загрузки библиотек
+//                theme: 'blue'
+            }
+        };
+        WParameters['standaloneGoods'] = {
+            show: [
+                "blockIdGoods",
+                "blockShortName",
+                "blockFullName",
+                "blockGallery",
+                "blockShop",
+                "blockInfoSeller",
+                "blockCount",
+                "editableCount",
+                "blockShare",
+                "blockDescription",
+                "blockShipping",
+                "blockOpinion",
+            ],
+            button: {
+                active: 'Купить товар11'
+            },
+            idGoods: 976,
+            count: 2
+        };
+        WParameters['standalonePayment'] = {
+            backUrl: ''
+        };
+        (function (e) {
+            var o = e.getElementsByTagName("head")[0] || e.documentElement,
+            a = e.createElement("script");a.async = true;a.src = "//" + WParameters.core.host + "js/widgets/JSCore-1.3.js";o.appendChild(a);
+            a.onload = function(){
+                PokupoWidgets.Init(["standaloneGoods", "standalonePayment"], WParameters)
+            }
+        })(document);
+    </script>
+    <section class="store nosidebar">
+        <div class="container">
+            <div id="content"></div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

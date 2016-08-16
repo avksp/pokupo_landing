@@ -1,0 +1,13 @@
+.checkbox input[type="checkbox"].human_checkbox{
+    position: relative;
+    margin-left: 0;
+}
+.bs-docs-example .table, .bs-docs-example .progress, .bs-docs-example .well, .bs-docs-example .alert, .bs-docs-example .hero-unit, .bs-docs-example .pagination, .bs-docs-example .navbar, .bs-docs-example > .nav, .bs-docs-example blockquote {
+    margin-bottom: 5px;
+}
+.alert-danger, .alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
+

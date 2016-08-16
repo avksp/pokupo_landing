@@ -1,0 +1,94 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'registrationSeller.title'|trans }}</h2>
+
+        <div class="form-group" ng-class="{true: 'has-error'}[error.registrationSeller.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.registrationSeller.containerId">{{ 'registrationSeller.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formRegistrationSellerContainerId" name="form.registrationSeller.containerId"
+                   ng-model="form.registrationSeller.containerId">
+            <p class="help-block error" ng-show="!error.registrationSeller.containerId.valid">*
+                {% verbatim %}
+                {{ error.registrationSeller.containerId.message }}
+                {% endverbatim %}
+            </p>
+            <p class="help-block">{{ 'registrationSeller.containerId.help'|trans }}</p>
+        </div>
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formRegistrationSellerUseCustomTmpl" name="form.registrationSeller.useCustomTmpl"
+                       ng-model="form.registrationSeller.useCustomTmpl">{{ 'registrationSeller.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.registrationSeller.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.registrationSeller.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.registrationSeller.pathTmpl">{{ 'registrationSeller.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formRegistrationSellerPathTmpl" name="form.registrationSeller.pathTmpl"
+                           ng-model="form.registrationSeller.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.registrationSeller.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.registrationSeller.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'registrationSeller.pathTmpl.help'|trans }}</p>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.registrationSeller.idTmpl.step1.valid == false]">
+                            <label class="control-label" for="form.registrationSeller.idTmpl.step1">{{ 'registrationSeller.idTmpl.step1.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formRegistrationSellerIdTmplStep1" name="form.registrationSeller.idTmpl.step1" ng-model="form.registrationSeller.idTmpl.step1">
+                            <p class="help-block error" ng-show="!error.registrationSeller.idTmpl.step1.valid">*
+                                {% verbatim %}
+                                {{ error.registrationSeller.idTmpl.step1.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.registrationSeller.idTmpl.step2.valid == false]">
+                            <label class="control-label" for="form.registrationSeller.idTmpl.step2">{{ 'registrationSeller.idTmpl.step2.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formRegistrationSellerIdTmplStep2" name="form.registrationSeller.idTmpl.step2" ng-model="form.registrationSeller.idTmpl.step2">
+                            <p class="help-block error" ng-show="!error.registrationSeller.idTmpl.step2.valid">*
+                                {% verbatim %}
+                                {{ error.registrationSeller.idTmpl.step2.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.registrationSeller.idTmpl.step3.valid == false]">
+                            <label class="control-label" for="form.registrationSeller.idTmpl.step3">{{ 'registrationSeller.idTmpl.step3.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formRegistrationSellerIdTmplStep3" name="form.registrationSeller.idTmpl.step3" ng-model="form.registrationSeller.idTmpl.step3">
+                            <p class="help-block error" ng-show="!error.registrationSeller.idTmpl.step3.valid">*
+                                {% verbatim %}
+                                {{ error.registrationSeller.idTmpl.step3.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.registrationSeller.idTmpl.step4.valid == false]">
+                            <label class="control-label" for="form.registrationSeller.idTmpl.step4">{{ 'registrationSeller.idTmpl.step4.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formRegistrationSellerIdTmplStep4" name="form.registrationSeller.idTmpl.step4" ng-model="form.registrationSeller.idTmpl.step4">
+                            <p class="help-block error" ng-show="!error.registrationSeller.idTmpl.step4.valid">*
+                                {% verbatim %}
+                                {{ error.registrationSeller.idTmpl.step4.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

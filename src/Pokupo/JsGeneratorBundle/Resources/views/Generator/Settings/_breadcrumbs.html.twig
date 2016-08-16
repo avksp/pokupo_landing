@@ -1,0 +1,13 @@
+{% if data|length > 0 %}
+    WParameters.breadcrumbs = {
+        {% if data.containerId is defined %}
+            container: { widget: '{{ data.containerId }}' },
+        {% endif %}
+        {% if data.useCustomTmpl is defined %}
+            tmpl: { path: '{{ data.pathTmpl }}', id: '{{ data.idTmpl }}'},
+        {% else %}
+            tmpl: {path: '{{protocol ~ '://' ~ url_tmpl_widgets}}/breadCrumbTmpl.html'},
+        {% endif %}
+        animate: function (){}
+    }
+{% endif %}

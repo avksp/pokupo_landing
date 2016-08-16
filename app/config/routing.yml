@@ -1,0 +1,86 @@
+PokupoBlogBundle_admin_pokupo_blog_bundle_comment:
+    resource: "@PokupoBlogBundle/Controller/Comment/"
+    type:     admingenerator
+    prefix:   /admin/comment
+
+PokupoBlogBundle_admin_pokupo_blog_bundle_tag:
+    resource: "@PokupoBlogBundle/Controller/Tag/"
+    type:     admingenerator
+    prefix:   /admin/tag
+
+PokupoBlogBundle_admin_pokupo_blog_bundle_post:
+    resource: "@PokupoBlogBundle/Controller/Post/"
+    type:     admingenerator
+    prefix:   /admin/post
+
+_getTags:
+    pattern:   /admin/getTags
+    defaults: {_controller: Pokupo\BlogBundle\Controller\Tag\ListController::getSearchTagsAction}
+
+#_liip_imagine:
+#    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+
+blog:
+    resource: "@PokupoBlogBundle/Controller/"
+    type:     annotation
+    prefix:   /blog
+
+pokupo_sitemap:
+    resource: "@PokupoSitemapBundle/Resources/config/routing.yml"
+    prefix:   /
+
+PokupoWebItemBundle_admin_pokupo_web_item_bundle_web_item:
+    resource: "@PokupoWebItemBundle/Controller/Web_item/"
+    type:     admingenerator
+    prefix:   /admin/web_item
+
+Pokupo_MenuBundle_Menu_set_menu_id:
+    pattern:   /admin/menu/{menu_id}/menu_item
+    defaults: { _controller: Pokupo\MenuBundle\Controller\Menu\ListController::setMenuIdAction }
+    
+Pokupo_MenuBundle_Menu_move_up:
+    pattern:   /admin/menu_item/{id}/move_up
+    defaults: { _controller: Pokupo\MenuBundle\Controller\Menu_item\ListController::moveUpAction }
+    
+Pokupo_MenuBundle_Menu_move_down:
+    pattern:   /admin/menu_item/{id}/move_down
+    defaults: { _controller: Pokupo\MenuBundle\Controller\Menu_item\ListController::moveDownAction }
+
+PokupoLayoutBundle_admin_pokupo_layout_bundle_layout:
+    resource: "@PokupoLayoutBundle/Controller/Layout/"
+    type:     admingenerator
+    prefix:   /admin/layout
+
+PokupoLandingBundle_admin_pokupo_landing_bundle_content:
+    resource: "@PokupoLandingBundle/Controller/Content/"
+    type:     admingenerator
+    prefix:   /admin/content
+
+PokupoMenuBundle_admin_pokupo_menu_bundle_menu_item:
+    resource: "@PokupoMenuBundle/Controller/Menu_item/"
+    type:     admingenerator
+    prefix:   /admin/menu_item
+
+PokupoMenuBundle_admin_pokupo_menu_bundle_menu:
+    resource: "@PokupoMenuBundle/Controller/Menu/"
+    type:     admingenerator
+    prefix:   /admin/menu
+    
+elfinder:
+    resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
+#_imagine:
+#    resource: .
+#    type:     imagine
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+pokupo_js_genarator:
+    resource: "@PokupoJsGeneratorBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pokupo_landing:
+    resource: "@PokupoLandingBundle/Resources/config/routing.yml"
+    prefix:   /

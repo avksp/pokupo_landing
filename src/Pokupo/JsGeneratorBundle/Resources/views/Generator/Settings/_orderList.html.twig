@@ -1,0 +1,19 @@
+{% if data|length > 0 %}
+    WParameters.orderList = {
+        {% if data.containerId is defined %}
+            container: { widget: '{{ data.containerId }}' },
+        {% endif %}
+        {% if not showMenu %}
+            show: {menu: false},
+        {% endif %}
+        {% if data.useCustomTmpl is defined %}
+            tmpl: {
+                path: '{{ data.pathTmpl }}',
+                id: { {% for key, value in data.idTmpl %}{{ key }}: '{{ value }}'{% if not loop.last %},{% endif %}{% endfor %} }
+            },
+        {% else %}
+            tmpl: {path: '{{protocol ~ '://' ~ url_tmpl_widgets}}/orderListTmpl.html'},
+        {% endif %}
+        animate: function (){}
+    }
+{% endif %}

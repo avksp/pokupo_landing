@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        {% block title %}<title>Покупо</title>{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+        <link href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon"/>
+        <link sizes="57x57" href="images/icons/apple-touch-icon-57x57.png" rel="apple-touch-icon"/>
+        <link sizes="72x72" href="images/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon"/>
+        <link sizes="76x76" href="images/icons/apple-touch-icon-76x76.png" rel="apple-touch-icon"/>
+        <link sizes="114x114" href="images/icons/apple-touch-icon-114x114.png" rel="apple-touch-icon"/>
+        <link sizes="120x120" href="images/icons/apple-touch-icon-120x120.png" rel="apple-touch-icon"/>
+        <link sizes="144x144" href="images/icons/apple-touch-icon-144x144.png" rel="apple-touch-icon"/>
+        <link sizes="152x152" href="images/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon"/>
+        <meta name="application-name" content="Вопросы и ответы"/>
+        <meta name="msapplication-tooltip" content="Description for pokupo"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="msapplication-TileImage" content="images/icons/tile.png"/>
+        <meta name="msapplication-square70x70logo" content="images/icons/tile.png"/>
+        <meta name="msapplication-square150x150logo" content="images/icons/tile.png"/>
+        <meta name="msapplication-square310x310logo" content="images/icons/tile.png"/>
+        <meta name="msapplication-wide310x150logo" content="images/icons/tile-wide.png"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <!--[if IE]> 
+        <meta name="imagetoolbar" content="no"/>
+        <meta name="msthemecompatible" content="no"/>
+        <![endif]-->
+        <meta name="cleartype" content="on"/>
+        <meta name="HandheldFriendly" content="True"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+    {% block meta_description %}{% endblock %}
+    {% block meta_keywords %}{% endblock %}
+    {% block more_scripts %}{% endblock %}
+    <meta name="copyright" content="©pokupo"/>
+    <meta name="reply-to" content="admin@pokupo.ru"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{https_host_template}}/styles/main.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="{{https_host_template}}/themes/default/theme.css">
+    {% endblock %}
+</head>
+<body>
+    <div class="main_pkp">
+        {% block mainheader %}
+            <section class="header">
+                <div class="container">
+                    <a href="/" title="Pokupo.ru" class="logo"></a>
+                    <div class="menu-login">
+                        <div class="logged-in">
+                            <a href="https://seller.pokupo.ru/login" class="icon-user circle-btn" title="Кабинет продавца"></a>
+                            <a href="#" onclick="Routing.SetHash('registration_seller', 'Открыть магазин', {}); return false;" class="btn btn-sm"><i class="icon icon-store--small"></i>Открыть магазин</a>
+                        </div>
+                    </div>
+                    <span id="toggleNav"><i class="icon icon-menu"></i>Меню</span>
+                    {% block topMenu %}
+                        {% render(controller( "PokupoMenuBundle:Menu:topMenu", {"menu" : "top_menu"}))%}
+                    {% endblock %}
+                    <div class="submenu-bg"></div>
+                </div>
+            </section>
+        {% endblock %}
+        {% block subheader %}
+            {% include 'PokupoLandingBundle:Content:_searchForm.html.twig' %}
+        {% endblock %}
+        {% block body %}
+        {% endblock %}
+        <div class="footer-overlay"></div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            {% include 'PokupoLandingBundle:Content:_footer.html.twig' %}
+        </div>
+    </footer>
+    {{ 'counters'|web_item }}
+    {% block javascripts %}
+        <!--[if lt IE 9]>
+        <script src="{{ asset('bundles/pokupolanding/js/libs/html5shiv.min.js') }}" async="true"></script>
+        <script src="{{ asset('bundles/pokupolanding/js/libs/nwmatcher.js') }}" async="true"></script>
+        <script src="{{ asset('bundles/pokupolanding/js/libs/ie8canvas.js') }}" async="true"></script>
+        <![endif]-->
+    {% endblock %}
+</body>
+</html>

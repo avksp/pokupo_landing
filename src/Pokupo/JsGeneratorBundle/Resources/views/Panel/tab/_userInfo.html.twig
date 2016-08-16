@@ -1,0 +1,78 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'userInfo.title'|trans }}</h2>
+
+        <div class="media">
+            <div class="form-group" ng-class="{true: 'has-error'}[error.userInfo.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+                <label class="control-label"
+                       for="form.userInfo.containerId">{{ 'userInfo.containerId.label'|trans }}</label>
+                <input class="form-control" type="text" id="formUserInfoContainerId"
+                       name="form.userInfo.containerId" ng-model="form.userInfo.containerId">
+
+                <p class="help-block error" ng-show="!error.userInfo.containerId.valid">*
+                    {% verbatim %}
+                    {{ error.userInfo.containerId.message }}
+                    {% endverbatim %}
+                </p>
+
+                <p class="help-block">{{ 'userInfo.containerId.help'|trans }}</p>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="formUserInfoIconTitle" name="form.userInfo.show.icon"
+                           ng-model="form.userInfo.show.icon">{{ 'userInfo.show.icon.label'|trans }}
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="formUserInfoShowRatingCost" name="form.userInfo.show.rating"
+                           ng-model="form.userInfo.show.rating">{{ 'userInfo.show.rating.label'|trans }}
+                </label>
+            </div>
+            <input type="checkbox" id="formUserInfoShowProfile" name="form.userInfo.show.profile"
+                   ng-model="form.userInfo.show.profile" class="ng-hide"/>
+
+
+            <hr ng-show="form.typeSettings.id == 3"/>
+            <div class="checkbox" ng-show="form.typeSettings.id == 3">
+                <label>
+                    <input type="checkbox" id="formUserInfoUseCustomTmpl" name="form.userInfo.useCustomTmpl"
+                           ng-model="form.userInfo.useCustomTmpl">{{ 'userInfo.useCustomTmpl.label'|trans }}
+                </label>
+            </div>
+            <div ng-show="form.userInfo.useCustomTmpl">
+                <fieldset>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.userInfo.pathTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.userInfo.pathTmpl">{{ 'userInfo.pathTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formUserInfoPathTmpl"
+                               name="form.userInfo.pathTmpl" ng-model="form.userInfo.pathTmpl">
+
+                        <p class="help-block error" ng-show="!error.userInfo.pathTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.userInfo.pathTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'userInfo.pathTmpl.help'|trans }}</p>
+                    </div>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.userInfo.idTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.userInfo.idTmpl">{{ 'userInfo.idTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formUserInfoIdTmpl" name="form.userInfo.idTmpl"
+                               ng-model="form.userInfo.idTmpl">
+
+                        <p class="help-block error" ng-show="!error.userInfo.idTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.userInfo.idTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

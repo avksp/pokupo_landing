@@ -1,0 +1,26 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'generator.title'|trans }}</h2>
+
+        <div class="form-group"  ng-show="result == null">
+            <button id="GeneratorButton" type="button" class="btn" ng-click="Click.SendData()">{{ 'generator.button'|trans }}</button>
+        </div>
+        {% verbatim %}
+
+        <div ng-show="result != null">
+            <p>Для использования "виджетов" вам нужно:</p>
+            <p>1. Подключить библиотеки, добавив следующий код в элемент &lt;head&gt;:</p>
+            <div class="highlight"><pre><code class="language-html">{{ result.js|filter:trim }}</code></pre></div>
+            <p>2. Разместить контейнеры, добавив следующий код в элемент &lt;body&gt;: </p>
+            <div class="highlight"><pre><code>{{ result.div|filter:trim }}</code></pre></div>
+            <h3>Пример кода приложения</h3>
+            <div class="highlight"><pre><code>{{ result.html|filter:trim }}</code></pre></div>
+
+            <p>Cкачать магазин одним файлом <a href="{% endverbatim %}{{ path('pokupo_js_Generator_get_html') }}{% verbatim %}?prefix={{ result.prefix }}">shop.html</a></p>
+
+        </div>
+        {% endverbatim %}
+    </div>
+</div>

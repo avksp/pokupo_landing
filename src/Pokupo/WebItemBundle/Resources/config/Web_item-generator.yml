@@ -1,0 +1,56 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Pokupo\WebItemBundle\Entity\WebItem
+    namespace_prefix: Pokupo
+    concurrency_lock: ~
+    bundle_name: WebItemBundle
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: WebItem
+            display: [ id, alias, description, is_active ]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: [alias, description, content, is_active]
+    new:
+        params:
+            title: Создать новый WebItem
+            display: [ alias, description, content, is_active ]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Редактировать \"%object%\"|{ %object%: WebItem.alias }|"
+            display: [ alias, description, content, is_active ]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: WebItem.alias }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

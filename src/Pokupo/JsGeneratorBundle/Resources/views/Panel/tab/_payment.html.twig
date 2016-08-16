@@ -1,0 +1,82 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'payment.title'|trans }}</h2>
+
+        <div class="form-group" ng-class="{true: 'has-error'}[error.payment.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.payment.containerId">{{ 'payment.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formPaymentContainerId" name="form.payment.containerId"
+                   ng-model="form.payment.containerId">
+
+            <p class="help-block error" ng-show="!error.payment.containerId.valid">*
+                {% verbatim %}
+                {{ error.payment.containerId.message }}
+                {% endverbatim %}
+            </p>
+
+            <p class="help-block">{{ 'payment.containerId.help'|trans }}</p>
+        </div>
+        <div class="form-group" ng-class="{true: 'has-error'}[error.payment.button.valid == false]">
+            <label class="control-label" for="form.payment.button">{{ 'payment.button.label'|trans }}</label>
+            <input class="form-control" type="text" id="formPaymentButton" name="form.payment.button"
+                   ng-model="form.payment.button">
+
+            <p class="help-block error" ng-show="!error.payment.button.valid">*
+                {% verbatim %}
+                {{ error.payment.button.message }}
+                {% endverbatim %}
+            </p>
+        </div>
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formPaymentUseCustomTmpl" name="form.payment.useCustomTmpl"
+                       ng-model="form.payment.useCustomTmpl">{{ 'payment.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.payment.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.payment.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.payment.pathTmpl">{{ 'payment.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formPaymentPathTmpl" name="form.payment.pathTmpl"
+                           ng-model="form.payment.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.payment.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.payment.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'payment.pathTmpl.help'|trans }}</p>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.payment.idTmpl.content.valid == false]">
+                            <label class="control-label" for="form.payment.idTmpl.content">{{ 'payment.idTmpl.content.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formCartGoodsIdTmplContent" name="form.payment.idTmpl.content" ng-model="form.payment.idTmpl.content">
+                            <p class="help-block error" ng-show="!error.payment.idTmpl.content.valid">*
+                                {% verbatim %}
+                                {{ error.payment.idTmpl.content.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.payment.idTmpl.skin.valid == false]">
+                            <label class="control-label" for="form.payment.idTmpl.skin">{{ 'payment.idTmpl.skin.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formCartGoodsIdTmplSkin" name="form.payment.idTmpl.skin" ng-model="form.payment.idTmpl.skin">
+                            <p class="help-block error" ng-show="!error.payment.idTmpl.skin.valid">*
+                                {% verbatim %}
+                                {{ error.payment.idTmpl.skin.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

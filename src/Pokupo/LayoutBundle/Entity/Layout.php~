@@ -1,0 +1,52 @@
+<?php
+
+//src/Pokupo/LayoutBundle/Entity/Layout.php
+
+namespace Pokupo\LayoutBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Table(name="layout")
+ * @ORM\Entity(repositoryClass="Pokupo\LayoutBundle\Entity\Repository\LayoutRepository")
+ */
+class Layout {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="string", length=1000)
+     */
+    protected $description;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $file;
+    
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $is_active = true;
+    
+    /**
+    * @ORM\OneToMany(
+     *   targetEntity="Pokupo\LandingBundle\Entity\Content", 
+     *   mappedBy="layout", 
+     *   cascade={"persist", "remove"})
+    */
+    protected $content;
+}

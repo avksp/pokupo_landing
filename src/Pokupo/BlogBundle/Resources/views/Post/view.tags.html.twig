@@ -1,0 +1,8 @@
+{% if tags | length %}
+  <div style="margin:30px 0">
+    <b>Метки: </b>
+    {% for tag in tags %}
+      <span><a href="{{ path('_blog_tag', { 'slug' : tag.slug }) }}">{{ tag }}</a></span>
+    {% endfor %}
+  </div>
+{% endif %}

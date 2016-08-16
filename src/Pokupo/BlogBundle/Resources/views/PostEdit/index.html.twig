@@ -1,0 +1,28 @@
+{% extends_admingenerated "PokupoBlogBundle:PostEdit:index.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+    '@PokupoBlogBundle/Resources/public/css/jquery.tagsinput.min.css'
+    '@PokupoBlogBundle/Resources/public/css/admin.css'
+    filter='cssrewrite,?yui_css' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+    '@PokupoBlogBundle/Resources/public/js/jquery.tagsinput.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script type="text/javascript">
+        $().ready(function(){
+            $('#edit_post_tags_string').tagsInput({
+                {#'autocomplete_url': '{{ path('_getTags') }}',#}
+                'height':'100px',
+                'width':'100%',
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,70 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Pokupo\MenuBundle\Entity\MenuItem
+    namespace_prefix: Pokupo
+    concurrency_lock: ~
+    bundle_name: MenuBundle
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: List for MenuBundle
+            display: [title, alias, link, is_active]
+            actions:
+                new: ~
+            object_actions:
+                move_up:
+                    label:    Переместить вверх
+                    icon:     fa fa-arrow-up
+                    route:    Pokupo_MenuBundle_Menu_move_up
+                    params:
+                        id: "{{MenuItem.id}}"
+                move_down:
+                    label:    Переместить вниз
+                    icon:     fa fa-arrow-down
+                    route:    Pokupo_MenuBundle_Menu_move_down
+                    params:
+                        id: "{{MenuItem.id}}"
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: [title, alias, is_active]
+    new:
+        params:
+            title: New menu item
+            display: [parent, title, alias, link, is_active]
+            actions:
+                save: ~
+                save-and-add: ~
+                list: ~
+    edit:
+        params:
+            title: "You're editing the object \"%object%\"|{ %object%: MenuItem.title }|"
+            display: [parent, title, alias, link, is_active]
+            actions:
+                save: ~
+                save-and-list: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: MenuItem.title }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

@@ -1,0 +1,32 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane in active" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'theme.title'|trans }}</h2>
+        {% for theme in themeList %}
+            <div class="media">
+                <div class="media-left">
+                    <input type="radio" id="formTheme_{{ theme.id }}" ng-checked="form.theme.id == {{ theme.id }}"
+                           name="formTheme" required="required" value="{{ theme.id }}"
+                           ng-model="form.theme.id"
+                            ng-change="form.theme.Change()">
+                </div>
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object theme_thumb" src="{{ theme.thumb }}" alt="{{ theme.name }}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ theme.name }}</h4>
+
+                    <div>{{ theme.description|raw }}</div>
+                </div>
+            </div>
+            {% if loop != loop.last %}
+            <hr/>
+            {% endif %}
+        {% endfor %}
+        <input type="hidden" name="form.shopId" ng-value="{{ shopId }}" ng-model="form.shopId"/>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

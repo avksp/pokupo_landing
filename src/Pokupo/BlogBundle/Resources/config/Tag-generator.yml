@@ -1,0 +1,56 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Pokupo\BlogBundle\Entity\Tag
+    namespace_prefix: Pokupo
+    concurrency_lock: ~
+    bundle_name: BlogBundle
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: Tags list
+            display: [id, name, slug]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display:  [name, slug]
+    new:
+        params:
+            title: New tag
+            display: [name, slug]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "You're editing the tag \"%object%\"|{ %object%: Tag.name }|"
+            display:  [name, slug]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Tag.name }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

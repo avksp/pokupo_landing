@@ -1,0 +1,14 @@
+{% extends 'PokupoLandingBundle:Templates:base.html.twig' %}
+{% block topMenu %}
+  {% render(controller( "PokupoMenuBundle:Menu:topMenu", {"menu" : "top_menu", "alias" : 'blog'})) %}
+{% endblock %}
+
+{% block body %}
+<section class="events">
+  <div class="container">
+    <div class="document">
+    {% include 'PokupoBlogBundle:/Comment:form.html.twig' with {'form': form, 'post': post } %}
+    </div>
+  </div>
+</section>
+{% endblock %}

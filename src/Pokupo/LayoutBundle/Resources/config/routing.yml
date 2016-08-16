@@ -1,0 +1,3 @@
+pokupo_layout_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PokupoLayoutBundle:Default:index }

@@ -1,0 +1,53 @@
+pokupo_frontend_homepage:
+    pattern:  /
+    defaults: { _controller: PokupoLandingBundle:Content:index, alias: homepage }
+pokupo_frontend_homepage2:
+    pattern:  /homepage
+    defaults: { _controller: PokupoLandingBundle:Content:notFound }
+
+pokupo_frontend_send_request_partnership:
+    pattern:  /request_partnership
+    defaults: { _controller: PokupoLandingBundle:Mailer:sendRequestPartnership }
+
+pokupo_frontend_search:
+    pattern:  /search
+    defaults: { _controller: PokupoLandingBundle:Content:search}
+
+pokupo_frontend_sitemap:
+    pattern:  /sitemap
+    defaults: { _controller: PokupoMenuBundle:Menu:siteMap}
+
+#pokupo_frontend_sitemap_xml:
+#    pattern:  /sitemap.{_format}
+#    defaults: { _controller: PokupoMenuBundle:Menu:siteMapXml, _format: xml}
+pokupo_frontend_content_payment:
+    pattern:  /payment/{shopId}
+    defaults: { _controller: PokupoLandingBundle:Content:payment, theme: payment}
+
+pokupo_frontend_content_payment_1:
+    pattern:  /payment/{shopId}/
+    defaults: { _controller: PokupoLandingBundle:Content:payment, theme: payment}
+
+pokupo_frontend_content_payment_2:
+    pattern:  /payment/{shopId}/{theme}
+    defaults: { _controller: PokupoLandingBundle:Content:payment}
+
+pokupo_frontend_content_payment_3:
+    pattern:  /payment/{shopId}/{theme}/
+    defaults: { _controller: PokupoLandingBundle:Content:payment}
+
+pokupo_frontend_content_show:
+    pattern:  /{alias}
+    defaults: { _controller: PokupoLandingBundle:Content:index }
+    
+pokupo_frontend_content_show_1:
+    pattern:  /{alias}/
+    defaults: { _controller: PokupoLandingBundle:Content:index }
+    
+pokupo_frontend_content_show_2:
+    pattern:  /{alias}/{shopId}
+    defaults: { _controller: PokupoLandingBundle:Content:index}
+    
+pokupo_frontend_content_show_3:
+    pattern:  /{alias}/{shopId}/
+    defaults: { _controller: PokupoLandingBundle:Content:index}

@@ -1,0 +1,74 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'cartGoods.title'|trans }}</h2>
+        <div class="form-group" ng-class="{true: 'has-error'}[error.cartGoods.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.cartGoods.containerId">{{ 'cartGoods.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formCartGoodsContainerId" name="form.cartGoods.containerId"
+                   ng-model="form.cartGoods.containerId">
+
+            <p class="help-block error" ng-show="!error.cartGoods.containerId.valid">*
+                {% verbatim %}
+                {{ error.cartGoods.containerId.message }}
+                {% endverbatim %}
+            </p>
+
+            <p class="help-block">{{ 'cartGoods.containerId.help'|trans }}</p>
+        </div>
+
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formCartGoodsUseCustomTmpl" name="form.cartGoods.useCustomTmpl"
+                       ng-model="form.cartGoods.useCustomTmpl">{{ 'cartGoods.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.cartGoods.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.cartGoods.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.cartGoods.pathTmpl">{{ 'cartGoods.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formCartGoodsPathTmpl" name="form.cartGoods.pathTmpl"
+                           ng-model="form.cartGoods.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.cartGoods.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.cartGoods.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'cartGoods.pathTmpl.help'|trans }}</p>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.cartGoods.idTmpl.content.valid == false]">
+                            <label class="control-label" for="form.cartGoods.idTmpl.content">{{ 'cartGoods.idTmpl.content.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formCartGoodsIdTmplContent" name="form.cartGoods.idTmpl.content" ng-model="form.cartGoods.idTmpl.content">
+                            <p class="help-block error" ng-show="!error.cartGoods.idTmpl.content.valid">*
+                                {% verbatim %}
+                                {{ error.cartGoods.idTmpl.content.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.cartGoods.idTmpl.empty.valid == false]">
+                            <label class="control-label" for="form.cartGoods.idTmpl.empty">{{ 'cartGoods.idTmpl.empty.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formCartGoodsIdTmplEmpty" name="form.cartGoods.idTmpl.empty" ng-model="form.cartGoods.idTmpl.empty">
+                            <p class="help-block error" ng-show="!error.cartGoods.idTmpl.empty.valid">*
+                                {% verbatim %}
+                                {{ error.cartGoods.idTmpl.empty.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

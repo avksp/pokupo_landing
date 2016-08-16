@@ -1,0 +1,74 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'shopInfo.title'|trans }}</h2>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formShopInfoShowLogo" name="form.shopInfo.show.logo"
+                       ng-model="form.shopInfo.show.logo">{{ 'shopInfo.show.logo.label'|trans }}
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formShopInfoShowTitle" name="form.shopInfo.show.title"
+                       ng-model="form.shopInfo.show.title">{{ 'shopInfo.show.title.label'|trans }}
+            </label>
+        </div>
+
+
+        <div ng-show="form.shopInfo.active">
+            <div class="form-group" ng-class="{true: 'has-error'}[error.shopInfo.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+                <label class="control-label"
+                       for="form.shopInfo.containerId">{{ 'shopInfo.containerId.label'|trans }}</label>
+                <input class="form-control" type="text" id="formShopInfoContainerId" name="form.shopInfo.containerId"
+                       ng-model="form.search.containerId">
+
+                <p class="help-block error" ng-show="!error.shopInfo.containerId.valid">*
+                    {% verbatim %}
+                    {{ error.shopInfo.containerId.message }}
+                    {% endverbatim %}
+                </p>
+
+                <p class="help-block">{{ 'shopInfo.containerId.help'|trans }}</p>
+            </div>
+            <div class="checkbox" ng-show="form.typeSettings.id == 3">
+                <label>
+                    <input type="checkbox" id="formShopInfoUseCustomTmpl" name="form.shopInfo.useCustomTmpl"
+                           ng-model="form.shopInfo.useCustomTmpl">{{ 'shopInfo.useCustomTmpl.label'|trans }}
+                </label>
+            </div>
+            <div ng-show="form.shopInfo.useCustomTmpl">
+                <fieldset>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.shopInfo.pathTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.shopInfo.pathTmpl">{{ 'shopInfo.pathTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formShopInfoPathTmpl" name="form.shopInfo.pathTmpl"
+                               ng-model="form.shopInfo.pathTmpl">
+
+                        <p class="help-block error" ng-show="!error.shopInfo.pathTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.shopInfo.pathTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'shopInfo.pathTmpl.help'|trans }}</p>
+                    </div>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.shopInfo.idTmpl.valid == false]">
+                        <label class="control-label" for="form.shopInfo.idTmpl">{{ 'shopInfo.idTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formShopInfoIdTmpl" name="form.shopInfo.idTmpl"
+                               ng-model="form.shopInfo.idTmpl">
+
+                        <p class="help-block error" ng-show="!error.shopInfo.idTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.shopInfo.idTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

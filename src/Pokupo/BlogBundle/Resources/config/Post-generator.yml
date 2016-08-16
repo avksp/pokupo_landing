@@ -1,0 +1,67 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Pokupo\BlogBundle\Entity\Post
+    namespace_prefix: Pokupo
+    concurrency_lock: ~
+    bundle_name: BlogBundle
+    pk_requirement: ~
+    fields:
+        tags_string:
+            dbType: string
+            formType: input
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: Posts list
+            display: [id, name, slug, intro, status, createdAt]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: [name, slug, intro, status]
+    new:
+        params:
+            title: New post
+            tabs:
+                Base:
+                    Base: [name, slug, status, tags_string]
+                Content:
+                    Content: [intro, content]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "You're editing the post \"%object%\"|{ %object%: Post.name }|"
+            tabs:
+                Base:
+                    Base: [name, slug, status, tags_string]
+                Content:
+                    Content: [intro, content]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Post.name }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

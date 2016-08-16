@@ -1,0 +1,22 @@
+<h2>Добавить комментарий</h2>
+<form id="post-comment" action="{{ path('_blog_comment_create', { 'post_id' : post.id }) }}"
+      method="post" {{ form_enctype(form) }}>
+  <div class="row-fluid">
+    {% if form_errors(form) %}
+      <div class="alert alert-error">{{ form_errors(form) }}</div>
+    {% endif %}
+    <div class="span7">
+      <p>
+        <label for="">Комментарий(*)</label>
+        {% if form_errors(form.content) %}
+
+      <div class="alert alert-error">{{ form_errors(form.content) }}</div>
+      {% endif %}
+      {{ form_widget(form.content) }}
+      <p>Поля, отмеченные звездочкой (*) обязательны для заполнения</p>
+      </p>
+    </div>
+  </div>
+  <input class="btn btn-xxs" type="submit" value="Добавить"/>
+  {{ form_rest(form) }}
+</form>

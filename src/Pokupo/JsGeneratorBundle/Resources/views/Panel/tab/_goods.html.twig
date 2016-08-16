@@ -1,0 +1,92 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'goods.title'|trans }}</h2>
+        <div class="form-group" ng-class="{true: 'has-error'}[error.goods.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.goods.containerId">{{ 'goods.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formGoodsContainerId" name="form.goods.containerId"
+                   ng-model="form.goods.containerId">
+
+            <p class="help-block error" ng-show="!error.goods.containerId.valid">*
+                {% verbatim %}
+                {{ error.goods.containerId.message }}
+                {% endverbatim %}
+            </p>
+
+            <p class="help-block">{{ 'goods.containerId.help'|trans }}</p>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formGoodsShowSelectionCount" name="form.goods.show.selectionCount"
+                       ng-model="form.goods.show.selectionCount">{{ 'goods.show.selectionCount.label'|trans }}
+            </label>
+        </div>
+        <div class="checkbox" ng-show="form.cartGoods.active">
+            <label>
+                <input type="checkbox" id="formGoodsShowAddToCart" name="form.goods.show.addToCart"
+                       ng-model="form.goods.show.addToCart">{{ 'goods.show.addToCart.label'|trans }}
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formGoodsShowBuy" name="form.goods.show.buy"
+                       ng-model="form.goods.show.buy"  ng-disabled="form.goods.showBuy.disabled">{{ 'goods.show.buy.label'|trans }}
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formGoodsShowGallery" name="form.goods.show.gallery"
+                       ng-model="form.goods.show.gallery">{{ 'goods.show.gallery.label'|trans }}
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formGoodsShowShipping" name="form.goods.show.shipping"
+                       ng-model="form.goods.show.shipping">{{ 'goods.show.shipping.label'|trans }}
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formGoodsShowOpinion" name="form.goods.show.opinion"
+                       ng-model="form.goods.show.opinion">{{ 'goods.show.opinion.label'|trans }}
+            </label>
+        </div>
+        <hr/>
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formGoodsUseCustomTmpl" name="form.goods.useCustomTmpl"
+                       ng-model="form.goods.useCustomTmpl">{{ 'goods.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.goods.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.goods.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.goods.pathTmpl">{{ 'goods.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formGoodsPathTmpl" name="form.goods.pathTmpl"
+                           ng-model="form.goods.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.goods.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.goods.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'goods.pathTmpl.help'|trans }}</p>
+                </div>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.goods.idTmpl.valid == false]">
+                    <label class="control-label" for="form.goods.idTmpl">{{ 'goods.idTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formGoodsIdTmpl" name="form.goods.idTmpl"
+                           ng-model="form.goods.idTmpl">
+
+                    <p class="help-block error" ng-show="!error.goods.idTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.goods.idTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

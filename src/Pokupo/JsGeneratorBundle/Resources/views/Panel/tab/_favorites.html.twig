@@ -1,0 +1,88 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'favorites.title'|trans }}</h2>
+
+        <div class="form-group" ng-class="{true: 'has-error'}[error.favorites.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.favorites.containerId">{{ 'favorites.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formFavoritesContainerId" name="form.favorites.containerId"
+                   ng-model="form.favorites.containerId">
+
+            <p class="help-block error" ng-show="!error.favorites.containerId.valid">*
+                {% verbatim %}
+                {{ error.favorites.containerId.message }}
+                {% endverbatim %}
+            </p>
+
+            <p class="help-block">{{ 'favorites.containerId.help'|trans }}</p>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formFavoritesShowInfoShop" name="form.favorites.show.infoShop"
+                       ng-model="form.favorites.show.infoShop">{{ 'favorites.infoShop.label'|trans }}
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formFavoritesShowAddToCart" name="form.favorites.show.addToCart"
+                       ng-model="form.favorites.show.addToCart">{{ 'favorites.addToCart.label'|trans }}
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="formFavoritesShowBuy" name="form.favorites.show.buy"
+                       ng-model="form.favorites.show.buy">{{ 'favorites.buy.label'|trans }}
+            </label>
+        </div>
+        <hr/>
+
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formFavoritesUseCustomTmpl" name="form.favorites.useCustomTmpl"
+                       ng-model="form.favorites.useCustomTmpl">{{ 'favorites.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.favorites.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.favorites.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.favorites.pathTmpl">{{ 'favorites.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formFavoritesPathTmpl" name="form.favorites.pathTmpl"
+                           ng-model="form.favorites.pathTmpl">
+                    <p class="help-block error" ng-show="!error.favorites.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.favorites.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+                    <p class="help-block">{{ 'favorites.pathTmpl.help'|trans }}</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.favorites.idTmpl.content.valid == false]">
+                            <label class="control-label" for="form.favorites.idTmpl.content">{{ 'favorites.idTmpl.content.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formFavoritesIdTmplContent" name="form.favorites.idTmpl.content" ng-model="form.favorites.idTmpl.content">
+                            <p class="help-block error" ng-show="!error.favorites.idTmpl.content.valid">*
+                                {% verbatim %}
+                                {{ error.favorites.idTmpl.content.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.favorites.idTmpl.empty.valid == false]">
+                            <label class="control-label" for="form.favorites.idTmpl.empty">{{ 'favorites.idTmpl.empty.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formFavoritesIdTmplEmpty" name="form.favorites.idTmpl.empty" ng-model="form.favorites.idTmpl.empty">
+                            <p class="help-block error" ng-show="!error.favorites.idTmpl.empty.valid">*
+                                {% verbatim %}
+                                {{ error.favorites.idTmpl.empty.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

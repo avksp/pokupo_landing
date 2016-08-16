@@ -1,0 +1,8 @@
+<div class="event">
+    <p class="event__date">{{ post.publishedAt | localizeddate('long', 'none') }}</p>
+    <h2 class="event__title foremost">
+        <a href="{{ path('_blog_view', { 'slug' : post.slug }) }}">{{ post }}</a>
+    </h2>
+    <p class="event__brief">{{ post.intro | raw }}</p>
+</div>
+

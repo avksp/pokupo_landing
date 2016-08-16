@@ -1,0 +1,26 @@
+{% for comment in comments %}
+  <div class="comment row" id="comment-{{ comment.id }}">
+    <div class="col-xs-2">
+      {#<img src="{{ comment.avatarUrl }}&?d=http%3A%2F%2Fdesarrolla2.com%2Fbundles%2Fblog%2Fimg%2Fdefault.png&s=100"#}
+           {#width="100" height="100"/>#}
+    </div>
+    <div class="col-xs-10">
+      <p>
+        <strong>
+          {% if comment.user %}
+             {{ comment.user.username }}
+          {% else %}
+             Гость
+          {% endif %}
+        </strong>
+        <time datetime="{{ comment.createdAt|date('c') }}">
+          {{ comment.createdAt | localizeddate('long', 'none') }}
+        </time>
+        <div>
+        {{ comment | raw }}
+        </div>
+      </p>
+    </div>
+  </div>
+{% endfor %}
+{% include 'PokupoBlogBundle:/Comment:form.html.twig' with {'form': form, 'post': post } %}

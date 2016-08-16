@@ -1,0 +1,40 @@
+{% extends 'PokupoLandingBundle:Templates:base.html.twig' %}
+{#{% set title %}{% if page == 1 %}{{ blog_description }} :: {{ blog_name }}{% else %}{{ blog_name }} :: Página {{ page }}{% endif %}{% endset %}#}
+{#{% set description %}{% if pagination.current %}{{ pagination.current.intro | striptags | truncate(150) }}{% endif %}{% endset %}#}
+{#{% block title %}{{ title }}{% endblock %}#}
+{#{% block meta_description %}{{ description }}{% endblock %}#}
+{#{% block canonical %}#}
+  {#<link rel="canonical" href="{{ url('_blog_default', { 'page' : page }) }}"/>#}
+{#{% endblock %}#}
+{#{% block meta_og %}#}
+  {#{% if pagination.current %}#}
+    {#<meta property="og:title" content="{{ title }}"/>#}
+    {#<meta property="og:description" content="{{ description }}"/>#}
+    {#{% if pagination.current.hasImage %}#}
+      {#<meta property="og:image" content="{{ pagination.current.image }}"/>#}
+    {#{% else %}#}
+      {#<meta property="og:image" content="{{ asset('bundles/app/ico/favicon-154.png') }}"/>#}
+    {#{% endif %}#}
+    {#<meta property="og:locale" content="{{ locale }}"/>#}
+    {#<meta property="og:type" content="website"/>#}
+  {#{% endif %}#}
+{#{% endblock %}#}
+
+{% block topMenu %}
+    {% render(controller( "PokupoMenuBundle:Menu:topMenu", {"menu" : "top_menu", "alias" : 'blog'})) %}
+{% endblock %}
+
+{% block body %}
+    <section class="events">
+        <div class="container">
+            <div class="document">
+                {% for post in pagination %}
+                    {% include 'PokupoBlogBundle:Post:index.item.html.twig' with {'post': post} %}
+                {% else %}
+                    <p>В блоге нет записей</p>
+                {% endfor %}
+                <div class="row center-block">{{ knp_pagination_render(pagination) }}</div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

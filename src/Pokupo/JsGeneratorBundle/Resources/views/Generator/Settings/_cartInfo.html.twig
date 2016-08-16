@@ -1,0 +1,16 @@
+{% if data|length > 0 %}
+    WParameters.cart = {
+        {% if data.containerId is defined %}
+            container: { widget: '{{ data.containerId }}' },
+        {% endif %}
+        {% if data.show is defined %}
+            show: { {% for key, value in data.show %}{{ key }}: '{{ value }}'{% if not loop.last %}, {% endif %}{% endfor %} },
+        {% endif %}
+        {% if data.useCustomTmpl is defined %}
+            tmpl: { path: '{{ data.pathTmpl }}', id: '{{ data.idTmpl }}'},
+        {% else %}
+            tmpl: {path: '{{protocol ~ '://' ~ url_tmpl_widgets}}/cartShopTmpl.html'},
+        {% endif %}
+        animate: function (){}
+    }
+{% endif %}

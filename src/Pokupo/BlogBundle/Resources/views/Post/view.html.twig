@@ -1,0 +1,41 @@
+{% extends 'PokupoLandingBundle:Templates:base.html.twig' %}
+{#{% block title %}{{ post }}{% endblock %}#}
+{#{% block canonical %}#}
+  {#<link rel="canonical" href="{{ url('_blog_view', { 'slug' : post.slug }) }}"/>{% endblock %}#}
+{#{% block meta_description %}{{ post.intro | striptags | raw | truncate(150) }}{% endblock %}#}
+{#{% block meta_og %}#}
+  {#<meta property="og:title" content="{{ post }}"/>#}
+  {#<meta property="og:description" content="{{ post.intro | striptags | raw | truncate(150) }}"/>#}
+  {#{% if post.hasImage %}#}
+    {#<meta property="og:image" content="{{ post.image }}"/>#}
+  {#{% else %}#}
+    {#<meta property="og:image" content="{{ asset('bundles/app/ico/favicon-154.png') }}"/>#}
+  {#{% endif %}#}
+  {#<meta property="og:locale" content="{{ locale }}"/>#}
+  {#<meta property="og:type" content="website"/>#}
+{#{% endblock %}#}
+{% block topMenu %}
+    {% render(controller( "PokupoMenuBundle:Menu:topMenu", {"menu" : "top_menu", "alias" : 'blog'})) %}
+{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <div class="document">
+                {% include 'PokupoBlogBundle:Post:view.header.html.twig' with {'post': post} %}
+                <div>
+                {{ post.content | raw }}
+                </div>
+                {% include 'PokupoBlogBundle:Post:view.tags.html.twig' with {'tags': post.tags } %}
+
+                {#{% include 'PokupoBlogBundle:Post:view.social.html.twig' with {'url': url('_blog_view', { 'slug' : post.slug }) } %}#}
+
+                {#{% include 'PokupoBlogBundle:Post:view.related.html.twig' with {'post': post  } %}#}
+
+                {% include 'PokupoBlogBundle:Post:view.comment.html.twig' with {'form': form, 'comments': comments } %}
+
+                <a href="{{ path('_blog_default') }}" class="btn btn-sm btn-thin"><i class="icon icon-back"></i>назад к списку</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'message.title'|trans }}</h2>
+
+        <div class="form-group" ng-class="{true: 'has-error'}[error.message.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.message.containerId">{{ 'message.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formMessageContainerId" name="form.message.containerId"
+                   ng-model="form.message.containerId">
+            <p class="help-block error" ng-show="!error.message.containerId.valid">*
+                {% verbatim %}
+                {{ error.message.containerId.message }}
+                {% endverbatim %}
+            </p>
+            <p class="help-block">{{ 'message.containerId.help'|trans }}</p>
+        </div>
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formMessageUseCustomTmpl" name="form.message.useCustomTmpl"
+                       ng-model="form.message.useCustomTmpl">{{ 'message.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.message.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.message.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.message.pathTmpl">{{ 'message.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formMessagePathTmpl" name="form.message.pathTmpl"
+                           ng-model="form.message.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.message.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.message.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'message.pathTmpl.help'|trans }}</p>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.message.idTmpl.topic.valid == false]">
+                            <label class="control-label" for="form.message.idTmpl.topic">{{ 'message.idTmpl.topic.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formMessageIdTmplTopic" name="form.message.idTmpl.topic" ng-model="form.message.idTmpl.topic">
+                            <p class="help-block error" ng-show="!error.message.idTmpl.topic.valid">*
+                                {% verbatim %}
+                                {{ error.message.idTmpl.topic.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.message.idTmpl.list.valid == false]">
+                            <label class="control-label" for="form.message.idTmpl.list">{{ 'message.idTmpl.list.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formMessageIdTmplList" name="form.message.idTmpl.list" ng-model="form.message.idTmpl.list">
+                            <p class="help-block error" ng-show="!error.message.idTmpl.list.valid">*
+                                {% verbatim %}
+                                {{ error.message.idTmpl.list.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.message.idTmpl.empty.valid == false]">
+                            <label class="control-label" for="form.message.idTmpl.empty">{{ 'message.idTmpl.empty.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formMessageIdTmplEmpty" name="form.message.idTmpl.empty" ng-model="form.message.idTmpl.empty">
+                            <p class="help-block error" ng-show="!error.message.idTmpl.empty.valid">*
+                                {% verbatim %}
+                                {{ error.message.idTmpl.empty.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

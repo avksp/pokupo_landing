@@ -1,0 +1,18 @@
+<div class="search-wrap orange">
+    <div class="container">
+        <input class="search-btn" id="search-btn" type="checkbox">
+        <label class="search-btn-label" for="search-btn"><a href="#" title="Поиск по сайту"></a></label>
+        <section class="orange search promo">
+            <div class="container">
+                <div class="b-search">
+                    <form action="{{ path('pokupo_frontend_search') }}" method="get">
+                    <div class="b-search-holder">
+                        <input type="search" placeholder="Поиск по сайту..." class="b-search__input" name="q" required="required" value="{{ app.request.query.get("q") }}">
+                    </div>
+                    <button type="submit" class="b-search__button">Найти</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

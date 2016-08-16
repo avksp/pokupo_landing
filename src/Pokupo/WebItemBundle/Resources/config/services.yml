@@ -1,0 +1,7 @@
+services:
+    pokupo_web_item_bundle.twig_extension.webitem:
+        class: Pokupo\WebItemBundle\Twig\WebItemsExtension
+        public: false
+        arguments:    ["@doctrine"]
+        tags:
+            - { name: twig.extension }

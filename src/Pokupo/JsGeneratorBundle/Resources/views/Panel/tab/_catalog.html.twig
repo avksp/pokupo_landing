@@ -1,0 +1,64 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'catalog.title'|trans }}</h2>
+
+        <div ng-show="form.catalog.active">
+            <div class="form-group" ng-class="{true: 'has-error'}[error.catalog.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+                <label class="control-label"
+                       for="form.catalog.containerId">{{ 'catalog.containerId.label'|trans }}</label>
+                <input class="form-control" type="text" id="formCatalogContainerId" name="form.catalog.containerId"
+                       ng-model="form.catalog.containerId">
+
+                <p class="help-block error" ng-show="!error.catalog.containerId.valid">*
+                    {% verbatim %}
+                    {{ error.catalog.containerId.message }}
+                    {% endverbatim %}
+                </p>
+
+                <p class="help-block">{{ 'catalog.containerId.help'|trans }}</p>
+            </div>
+            <div class="checkbox" ng-show="form.typeSettings.id == 3">
+                <label>
+                    <input type="checkbox" id="formCatalogUseCustomTmpl" name="form.catalog.useCustomTmpl"
+                           ng-model="form.catalog.useCustomTmpl">{{ 'catalog.useCustomTmpl.label'|trans }}
+                </label>
+            </div>
+            <div ng-show="form.catalog.useCustomTmpl">
+                <fieldset>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.catalog.pathTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.catalog.pathTmpl">{{ 'catalog.pathTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formCatalogPathTmpl" name="form.catalog.pathTmpl"
+                               ng-model="form.catalog.pathTmpl">
+
+                        <p class="help-block error" ng-show="!error.catalog.pathTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.catalog.pathTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'catalog.pathTmpl.help'|trans }}</p>
+                    </div>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.catalog.idTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.catalog.idTmpl">{{ 'catalog.idTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formCatalogIdTmpl" name="form.catalog.idTmpl"
+                               ng-model="form.catalog.idTmpl">
+
+                        <p class="help-block error" ng-show="!error.catalog.idTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.catalog.idTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

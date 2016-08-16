@@ -1,0 +1,129 @@
+
+    var DefaultTmpl = function(){
+        var self = this;
+        self.div = '<div></div>';
+        self.Init = function(){
+            var main = self.Main()
+                {% if (data.shopInfo is defined and data.shopInfo.active == 'true')
+                    or (data.userInfo is defined and data.userInfo.active == 'true')
+                    or (data.cartInfo is defined and data.cartInfo.active == 'true') %}
+                .append(self.Subheader())
+                {% endif %}
+                .append(self.Authentication())
+                {% if data.search is defined and data.search.active == 'true' %}
+                    .append(self.Search())
+                {% endif %}
+                {% if data.advancedSearch is defined and data.advancedSearch.active == 'true' %}
+                    {% if data.advancedSearch.form.showForm %}
+                        .append(self.AdvancedSearch())
+                    {% endif %}
+                {% endif %}
+                .append(self.Store())
+                .append($(self.div).addClass('footer-overlay'));
+            $('#PokupoWidget').append(
+                main
+            );
+        };
+        self.Main = function(){
+            return $(self.div).addClass('main');
+        };
+        self.UserInfo = function(){
+            return $(self.div).attr('id', '{{ data.userInfo.containerId }}').css('float', 'left');
+        };
+        self.CartInfo = function(){
+            return $(self.div).attr('id', '{{ data.cartInfo.containerId }}').css('float', 'left');
+        };
+        self.Authentication = function(){
+            return $(self.div).attr('id', '{{ data.authentication.containerId }}');
+        };
+        {% if data.search is defined and data.search.active == 'true' %}
+        self.Search = function(){
+            return $(self.div).attr('id', '{{ data.search.containerId }}');
+        };
+        {% endif %}
+        {% if data.shopInfo is defined and data.shopInfo.active == 'true' %}
+            self.ShopInfo = function(){
+            return $(self.div).attr('id', '{{ data.shopInfo.containerId }}');
+            };
+        {% endif %}
+        {% if data.advancedSearch is defined and data.advancedSearch.active == 'true' %}
+        {% if data.advancedSearch.form.showForm %}
+        self.AdvancedSearch = function(){
+            return $(self.div).attr('id', '{{ data.advancedSearch.form.containerId }}');
+        };
+        {% endif %}
+        {% endif %}
+
+        {% if data.catalog is defined and data.catalog.active == 'true' %}
+            self.Catalog = function(){
+                return $(self.div).attr('id', '{{ data.catalog.containerId }}');
+            };
+            {% if data.breadcrumbs is defined and data.breadcrumbs.active == 'true' %}
+                self.Breadcrumbs = function(){
+                    {% if (data.userInfo is defined and data.userInfo.active == 'true')
+                    or (data.cartInfo is defined and data.cartInfo.active == 'true') %}
+                        return $(self.div).attr('id', '{{ data.breadcrumbs.containerId }}').addClass('b-thermometer');
+                    {% else %}
+                        var con = $(self.div).css('margin-top', '34px');
+                        return con.append($(self.div).attr('id', '{{ data.breadcrumbs.containerId }}').addClass('b-thermometer'));
+                    {% endif %}
+                };
+            {% endif %}
+        {% endif %}
+        {% if data.menuCabinet is defined and data.menuCabinet.active == 'true' %}
+        self.PersonalMenu = function(){
+            return $(self.div).attr('id', '{{ data.menuCabinet.containerId }}');
+        };
+        {% endif %}
+
+        {% if (data.shopInfo is defined and data.shopInfo.active == 'true')
+           or (data.userInfo is defined and data.userInfo.active == 'true')
+           or (data.cartInfo is defined and data.cartInfo.active == 'true') %}
+        self.Subheader = function(){
+            var container = $(self.div).addClass('container');
+            {% if data.shopInfo is defined and data.shopInfo.active == 'true' %}
+            container.append(self.ShopInfo())
+            {% endif %}
+            container.append($(self.div).addClass('menu-login')
+                {% if data.userInfo is defined and data.userInfo.active == 'true' %}
+                    .append(self.UserInfo())
+                {% endif %}
+                {% if data.cartInfo is defined and data.cartInfo.active == 'true' %}
+                    .append(self.CartInfo())
+                {% endif %}
+            )
+            return $('<section></section>').addClass('subheader subheader--min')
+                .append(container);
+        };
+        {% endif %}
+        self.Store = function(){
+            return $('<section></section>').addClass('store')
+                {% if data.menuCabinet is defined and data.menuCabinet.active == 'true' %}
+                    .append(self.PersonalMenu())
+                {% endif %}
+                    .append(
+                        $(self.div).addClass('container')
+                        {% if data.catalog is defined and data.catalog.active == 'true' %}
+                            .append(self.Catalog())
+                            {% if data.breadcrumbs is defined and data.breadcrumbs.active == 'true' %}
+                                .append(self.Breadcrumbs())
+                            {% endif %}
+                            {% if data.content is defined and data.content.active %}
+                                {% if data.content.block.showBlocks == 'true' %}
+                                    {% for block in data.content.block.containerId %}
+                                        .append($(self.div).attr('id', '{{ block }}'))
+                                    {% endfor %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        .append($(self.div).attr('id', 'content'))
+                    )
+        };
+        self.Init();
+    }
+$().ready(function(){
+    new DefaultTmpl();
+})
+
+
+

@@ -1,0 +1,163 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     promodev_pokupo_ru
+    database_user:     promod_pokupo_ru
+    database_password: as9hfyu192ej1902reh128hc182hc31209hjx
+
+    mailer_transport: gmail
+    mailer_host: null
+    mailer_user: help@pokupo.ru
+    mailer_mail_from: help@pokupo.ru
+    mailer_mail_to: alex.marinenko@gmail.com
+    mailer_password: zqkoipdjkgpjyozs
+
+    locale:            ru
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    debug_toolbar:          true
+    debug_redirects:        false
+    use_assetic_controller: true
+    path_uploads:  /home/promodev_pokupo_ru/www/promodev.pokupo.ru/web/uploads/
+    
+    url_widgets: server.pokupo.ru/dev/server
+    url_tmpl_widgets: promodev.pokupo.ru/themes/
+    
+    host : "server.pokupo.ru/dev/server/"                       # урл сервера (без протокола)
+    pathToJS : js/                                              # папка js скриптов
+    pathToTmpl : tmpl/                                          # папка шаблонов по умолчанию
+    pathToData : dev/server/services/DataProxy.php?query=       # путь на сервере к прокси файлу обрабатывающий GET запросы
+    pathToPostData : services/DataPostProxy.php      # путь на сервере к прокси файлу обрабатывающий POST запросы
+    pathToCore: index.html                                      # Файл провайдер для GET запросов
+    pathToPostCore : postData.html                              # файл провайдер для POST запросов
+    hostApi : dev.pokupo.ru/api/                                    # урл API (без протокола)
+
+    http_host_template: https://promodev.pokupo.ru
+    https_host_template: https://promodev.pokupo.ru
+
+    ip_access:
+        - 212.164.221.9
+        - 37.187.107.151
+
+    blog:
+        title: 'blog'
+        description: 'blog'
+    blog_description: 'blog'
+    blog_title: 'blog'
+    blog_name: 'blog'
+
+    pokupo:
+        hostWidget: //promodev.pokupo.ru/widgets/
+        path: /home/server_pokupo_ru/www/server.pokupo.ru/dev/server/js/widgets/
+        pathTmpl: /home/promodev_pokupo_ru/www/promodev.pokupo.ru/vendor/pokupo/dist/
+        core:
+            - ../jquery-1.8.2.min.js
+            - ../jquery-ui.min.js
+            - JSCore-1.2.js
+        widgets:
+            content:
+                - ContentWidget-1.1.js
+            catalog:
+                - CatalogWidget-1.0.js
+            breadcrumbs:
+                - BreadCrumbWidget-1.0.js
+            goods:
+                - GoodsWidget-1.2.js
+            order:
+                - OrderWidget-1.1.js
+            payment:
+                - ButtonPaymentWidget-1.1.js
+            cartGoods:
+                - CartGoodsWidget-1.0.js
+            registration:
+                - RegistrationWidget-1.0.js
+            registrationSeller:
+                - RegistrationSellerWidget-1.0.js
+            authentication:
+                - AuthenticationWidget-1.1.js
+            menuCabinet:
+                - MenuPersonalCabinetWidget-1.1.js
+            profile:
+                - ProfileWidget-1.0.js
+            cartGoodsCabinet:
+                - CabinetCartGoodsWidget-1.0.js
+            orderList:
+                - OrderListWidget-1.0.js
+            favorites:
+                - FavoritesWidget-1.0.js
+            message:
+                - MessageWidget-1.0.js
+            cartInfo:
+                - CartWidget-1.0.js
+            userInfo:
+                - UserInformationWidget-1.1.js
+            search:
+                - SearchWidget-1.0.js
+            advancedSearch:
+                - SearchResultWidget-1.1.js
+            shopInfo:
+                - ShopInfoWidget-1.0.js
+        themes:
+            1:
+                js:
+                    core:
+                        - ../promo/jquery.fancytree-all.js
+                        - ../promo/fotorama.js
+                        - ../promo/floatlabels.js
+                        - ../promo/carousel.min.js
+                        - ../promo/chosen.jquery.js
+                        - ../promo/floatlabels.js
+                        - ../promo/masked-input.js
+                        - ../promo/placeholder.js
+                        - ../promo/jquery.password.js
+                        - ../promo/tooltip.js
+                        - ../promo/progress-circle.js
+                        - ../promo/jquery.suggestions-4.6.min.js
+                    widgets:
+                        content:
+                            - ../promo/AnimateContent-1.0.js
+                        catalog:
+                            - ../promo/AnimateCatalog-1.0.js
+                        breadcrumbs:
+                            - ../promo/AnimateBreadCrumb-1.0.js
+                        goods:
+                            - ../promo/AnimateGoods-1.0.js
+                            - ../promo/AnimateInfoSeller-1.0.js
+                            - ../promo/AnimateRelatedGoods-1.0.js
+                        order:
+                            - ../promo/AnimateOrder-1.0.js
+                        payment:
+                            - ../promo/AnimateButtonPayment-1.1.js
+                        cartGoods:
+                            - ../promo/AnimateCartGoods-1.0.js
+                        registration:
+                            - ../promo/AnimateRegistration-1.0.js
+                        registrationSeller:
+                            - ../promo/AnimateRegistrationSeller-1.0.js
+                        authentication:
+                            - ../promo/AnimateAuthentication-1.1.js
+                        menuCabinet:
+                            - ../promo/AnimateMenuPersonalCabinet-1.1.js
+                        profile:
+                            - ../promo/AnimateProfile-1.0.js
+                        cartGoodsCabinet:
+                            - ../promo/AnimateCabinetCartGoods-1.0.js
+                        orderList:
+                            - ../promo/AnimateOrderList-1.0.js
+                        favorites:
+                            - ../promo/AnimateFavorite-1.0.js
+                        message:
+                            - ../promo/AnimateMessage-1.0.js
+                        cartInfo:
+                            - ../promo/AnimateCart-1.0.js
+                        userInfo:
+                            - ../promo/AnimateUserInformation-1.0.js
+                        search:
+                            - ../promo/AnimateSearch-1.0.js
+                        advancedSearch:
+                            - ../promo/AnimateSearchResult-1.0.js
+                css:
+                    - styles/libs/jquery-ui-1.10.2.custom.css
+                    - styles/libs/fotorama.css
+                    - styles/main.css

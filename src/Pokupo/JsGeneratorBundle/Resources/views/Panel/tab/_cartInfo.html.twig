@@ -1,0 +1,110 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'cartInfo.title'|trans }}</h2>
+
+        <div class="media">
+            <div class="form-group" ng-class="{true: 'has-error'}[error.cartInfo.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+                <label class="control-label"
+                       for="form.cartInfo.containerId">{{ 'cartInfo.containerId.label'|trans }}</label>
+                <input class="form-control" type="text" id="formCartInfoContainerId"
+                       name="form.cartInfo.containerId" ng-model="form.cartInfo.containerId">
+
+                <p class="help-block error" ng-show="!error.cartInfo.containerId.valid">*
+                    {% verbatim %}
+                    {{ error.cartInfo.containerId.message }}
+                    {% endverbatim %}
+                </p>
+
+                <p class="help-block">{{ 'cartInfo.containerId.help'|trans }}</p>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="formCartInfoShowCount" name="form.cartInfo.show.count"
+                           ng-model="form.cartInfo.show.count">{{ 'cartInfo.showCount.label'|trans }}
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="formCartInfoShowBaseCost" name="form.cartInfo.show.baseCost"
+                           ng-model="form.cartInfo.show.baseCost">{{ 'cartInfo.showBaseCost.label'|trans }}
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="formCartInfoShowFinalCost" name="form.cartInfo.show.finalCost"
+                           ng-model="form.cartInfo.show.finalCost">{{ 'cartInfo.showFinalCost.label'|trans }}
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="formCartInfoShowFullInfo" name="form.cartInfo.show.fullInfo"
+                           ng-model="form.cartInfo.show.fullInfo">{{ 'cartInfo.showFullInfo.label'|trans }}
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="control-label"
+                       for="form.cartInfo.showTitle">{{ 'cartInfo.showTitle.label'|trans }}</label>
+                <br/>
+                <label class="radio-inline">
+                    <input type="radio" id="formCartInfoShowTitleAlways" name="form.cartInfo.showTitle"
+                           ng-model="form.cartInfo.showTitle" value="always">{{ 'cartInfo.always.label'|trans }}
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="formCartInfoShowTitleNever" name="form.cartInfo.showTitle"
+                           ng-model="form.cartInfo.showTitle" value="never">{{ 'cartInfo.never.label'|trans }}
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="formCartInfoShowTitleEmpty" name="form.cartInfo.showTitle"
+                           ng-model="form.cartInfo.showTitle" value="empty">{{ 'cartInfo.empty.label'|trans }}
+                </label>
+
+                <p class="help-block error" ng-show="!error.cartInfo.showTitle.valid">*
+                    {% verbatim %}
+                    {{ error.cartInfo.showTitle.message }}
+                    {% endverbatim %}
+                </p>
+            </div>
+            <hr/>
+            <div class="checkbox" ng-show="form.typeSettings.id == 3">
+                <label>
+                    <input type="checkbox" id="formCartInfoUseCustomTmpl" name="form.cartInfo.useCustomTmpl"
+                           ng-model="form.cartInfo.useCustomTmpl">{{ 'cartInfo.useCustomTmpl.label'|trans }}
+                </label>
+            </div>
+            <div ng-show="form.cartInfo.useCustomTmpl">
+                <fieldset>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.cartInfo.pathTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.cartInfo.pathTmpl">{{ 'cartInfo.pathTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formCartInfoPathTmpl"
+                               name="form.cartInfo.pathTmpl" ng-model="form.cartInfo.pathTmpl">
+
+                        <p class="help-block error" ng-show="!error.cartInfo.pathTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.cartInfo.pathTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'cartInfo.pathTmpl.help'|trans }}</p>
+                    </div>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.cartInfo.idTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.cartInfo.idTmpl">{{ 'cartInfo.idTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formCartInfoIdTmpl" name="form.cartInfo.idTmpl"
+                               ng-model="form.cartInfo.idTmpl">
+
+                        <p class="help-block error" ng-show="!error.cartInfo.idTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.cartInfo.idTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

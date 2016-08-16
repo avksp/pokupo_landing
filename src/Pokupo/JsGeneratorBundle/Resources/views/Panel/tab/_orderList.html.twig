@@ -1,0 +1,83 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'orderList.title'|trans }}</h2>
+
+        <div class="form-group" ng-class="{true: 'has-error'}[error.orderList.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.orderList.containerId">{{ 'orderList.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formOrderListContainerId" name="form.orderList.containerId"
+                   ng-model="form.orderList.containerId">
+            <p class="help-block error" ng-show="!error.orderList.containerId.valid">*
+                {% verbatim %}
+                {{ error.orderList.containerId.message }}
+                {% endverbatim %}
+            </p>
+            <p class="help-block">{{ 'orderList.containerId.help'|trans }}</p>
+        </div>
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formOrderListUseCustomTmpl" name="form.orderList.useCustomTmpl"
+                       ng-model="form.orderList.useCustomTmpl">{{ 'orderList.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.orderList.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.orderList.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.orderList.pathTmpl">{{ 'orderList.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formOrderListPathTmpl" name="form.orderList.pathTmpl"
+                           ng-model="form.orderList.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.orderList.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.orderList.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'orderList.pathTmpl.help'|trans }}</p>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.orderList.idTmpl.list.valid == false]">
+                            <label class="control-label" for="form.orderList.idTmpl.list">{{ 'orderList.idTmpl.list.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formOrderListIdTmplList" name="form.orderList.idTmpl.list" ng-model="form.orderList.idTmpl.list">
+                            <p class="help-block error" ng-show="!error.orderList.idTmpl.list.valid">*
+                                {% verbatim %}
+                                {{ error.orderList.idTmpl.list.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.orderList.idTmpl.detail.valid == false]">
+                            <label class="control-label" for="form.orderList.idTmpl.detail">{{ 'orderList.idTmpl.detail.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formOrderListIdTmplDetail" name="form.orderList.idTmpl.detail" ng-model="form.orderList.idTmpl.detail">
+                            <p class="help-block error" ng-show="!error.orderList.idTmpl.detail.valid">*
+                                {% verbatim %}
+                                {{ error.orderList.idTmpl.detail.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.orderList.idTmpl.empty.valid == false]">
+                            <label class="control-label" for="form.orderList.idTmpl.empty">{{ 'orderList.idTmpl.empty.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formOrderListIdTmplEmpty" name="form.orderList.idTmpl.empty" ng-model="form.orderList.idTmpl.empty">
+                            <p class="help-block error" ng-show="!error.orderList.idTmpl.empty.valid">*
+                                {% verbatim %}
+                                {{ error.orderList.idTmpl.empty.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

@@ -1,0 +1,6 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+<li ng-class="{true: 'disabled'}[steps[{{ step }}].disabled]" ng-show="form[steps[{{ step }}].widget].active && steps[{{ step }}].show" class="ng-hide">
+    <a href="#step{{ step }}" ng-click="Click.Tab({{ step }})">
+        {{ 'menuCabinet.tab'|trans }}
+    </a>
+</li>

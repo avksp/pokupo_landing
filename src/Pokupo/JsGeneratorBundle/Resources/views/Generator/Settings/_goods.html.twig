@@ -1,0 +1,16 @@
+{% if data|length > 0 %}
+    WParameters.goods = {
+        {% if data.containerId is defined %}
+            container: { widget: '{{ data.containerId }}' },
+        {% endif %}
+        {% if data.show is defined %}
+            show: [ {% for item in data.show %}'{{ item }}'{% if not loop.last %}, {% endif %}{% endfor %} ],
+        {% endif %}
+        {% if data.useCustomTmpl is defined %}
+            tmpl: { path: '{{ data.pathTmpl }}', id: '{{ data.idTmpl }}'},
+        {% else %}
+            tmpl: {path: '{{protocol ~ '://' ~ url_tmpl_widgets}}/goodsTmpl.html'},
+        {% endif %}
+        animate: function (){}
+    }
+{% endif %}

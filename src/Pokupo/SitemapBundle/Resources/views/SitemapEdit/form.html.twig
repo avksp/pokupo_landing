@@ -1,0 +1,35 @@
+{% block form %}
+    <form class="admin_form" action="{{ path("pokupo_sitemap_update") }}" method="post" {{ form_enctype(form) }} role="form">
+
+        {{ form_errors(form) }}
+        {% block form_fieldset_NONE %}
+            <fieldset class="container-fluid form_block form_fieldset_NONE tab-pane">
+                <div class="row">
+                    <div class="col-md-4 form_field field_text field_content">
+                        {% block form_content %}
+                            {{ form_row(form['content']) }}
+                        {% endblock form_content %}
+                    </div>
+                </div>
+            </fieldset>
+        {% endblock form_fieldset_NONE %}
+
+
+        {{ form_rest(form) }}
+
+        {% block form_buttons %}
+            <div id="edit-actions" class="form-group">
+                <div class="btn-toolbar" role="toolbar">
+                    {% block generic_actions %}
+                        {% block generic_action_save %}
+                            <button type="submit" name="save" class="btn btn-success"><i
+                                        class="fa fa-check"></i> {% trans from "Admingenerator" %}
+                                action.generic.save{% endtrans %}
+                            </button>
+                        {% endblock generic_action_save %}
+                    {% endblock generic_actions %}
+                </div>
+            </div>
+        {% endblock form_buttons %}
+    </form>
+{% endblock form %}

@@ -1,0 +1,56 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Pokupo\BlogBundle\Entity\Comment
+    namespace_prefix: Pokupo
+    concurrency_lock: ~
+    bundle_name: BlogBundle
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: Comments list
+            display: [id, post, content, status, createdAt]
+#            actions:
+#                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: [post, status]
+#    new:
+#        params:
+#            title: New object for BlogBundle
+#            display: ~
+#            actions:
+#                save: ~
+#                list: ~
+    edit:
+        params:
+            title: "You're editing the comment \"%object%\"|{ %object%: Comment.id }|"
+            display: [post, content, status]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Comment.id }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

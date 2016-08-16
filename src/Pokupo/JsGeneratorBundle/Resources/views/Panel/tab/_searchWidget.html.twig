@@ -1,0 +1,66 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'search.title'|trans }}</h2>
+
+        <input type="checkbox" id="formSearchShowCatalog" name="form.search.showCatalog"
+               ng-model="form.search.showCatalog" class="ng-hide"/>
+
+        <div ng-show="form.search.active">
+            <div class="form-group" ng-class="{true: 'has-error'}[error.search.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+                <label class="control-label"
+                       for="form.search.containerId">{{ 'search.containerId.label'|trans }}</label>
+                <input class="form-control" type="text" id="formSearchContainerId" name="form.search.containerId"
+                       ng-model="form.search.containerId">
+
+                <p class="help-block error" ng-show="!error.search.containerId.valid">*
+                    {% verbatim %}
+                    {{ error.search.containerId.message }}
+                    {% endverbatim %}
+                </p>
+
+                <p class="help-block">{{ 'search.containerId.help'|trans }}</p>
+            </div>
+            <div class="checkbox" ng-show="form.typeSettings.id == 3">
+                <label>
+                    <input type="checkbox" id="formSearchUseCustomTmpl" name="form.search.useCustomTmpl"
+                           ng-model="form.search.useCustomTmpl">{{ 'search.useCustomTmpl.label'|trans }}
+                </label>
+            </div>
+            <div ng-show="form.search.useCustomTmpl">
+                <fieldset>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.search.pathTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.search.pathTmpl">{{ 'search.pathTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formSearchPathTmpl" name="form.search.pathTmpl"
+                               ng-model="form.search.pathTmpl">
+
+                        <p class="help-block error" ng-show="!error.search.pathTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.search.pathTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'search.pathTmpl.help'|trans }}</p>
+                    </div>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.search.idTmpl.valid == false]">
+                        <label class="control-label" for="form.search.idTmpl">{{ 'search.idTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formSearchIdTmpl" name="form.search.idTmpl"
+                               ng-model="form.search.idTmpl">
+
+                        <p class="help-block error" ng-show="!error.search.idTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.search.idTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

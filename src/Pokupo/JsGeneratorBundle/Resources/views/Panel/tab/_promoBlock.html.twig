@@ -1,0 +1,195 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'content.block.title'|trans }}</h2>
+
+        <div class="media">
+            <div class="row" ng-show="form.typeSettings.id == 3">
+                <div class="col-md-3">
+                    <div class="form-group"
+                         ng-class="{true: 'has-error'}[error.content.block.containerId.slider.valid == false]">
+                        <label class="control-label"
+                               for="form.content.block.containerId.slider">{{ 'content.block.containerId.slider.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formContentBlockContainerIdSlider"
+                               name="form.content.block.containerId.slider"
+                               ng-model="form.content.block.containerId.slider">
+
+                        <p class="help-block error" ng-show="!error.content.block.containerId.slider.valid">*
+                            {% verbatim %}
+                            {{ error.content.block.containerId.slider.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'content.block.containerId.slider.help'|trans }}</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group"
+                         ng-class="{true: 'has-error'}[error.content.block.containerId.carousel.valid == false]">
+                        <label class="control-label"
+                               for="form.content.block.containerId.carousel">{{ 'content.block.containerId.carousel.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formContentBlockContainerIdCarousel"
+                               name="form.content.block.containerId.carousel"
+                               ng-model="form.content.block.containerId.carousel">
+
+                        <p class="help-block error" ng-show="!error.content.block.containerId.carousel.valid">*
+                            {% verbatim %}
+                            {{ error.content.block.containerId.carousel.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'content.block.containerId.carousel.help'|trans }}</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group"
+                         ng-class="{true: 'has-error'}[error.content.block.containerId.tile.valid == false]">
+                        <label class="control-label"
+                               for="form.content.block.containerId.tile">{{ 'content.block.containerId.tile.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formContentBlockContainerIdTile"
+                               name="form.content.block.containerId.tile"
+                               ng-model="form.content.block.containerId.tile">
+
+                        <p class="help-block error" ng-show="!error.content.block.containerId.tile.valid">*
+                            {% verbatim %}
+                            {{ error.content.block.containerId.tile.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'content.block.containerId.tile.help'|trans }}</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group"
+                         ng-class="{true: 'has-error'}[error.content.block.containerId.empty.valid == false]">
+                        <label class="control-label"
+                               for="form.content.block.containerId.empty">{{ 'content.block.containerId.empty.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formContentBlockContainerIdEmpty"
+                               name="form.content.block.containerId.empty"
+                               ng-model="form.content.block.containerId.empty">
+
+                        <p class="help-block error" ng-show="!error.content.block.containerId.empty.valid">*
+                            {% verbatim %}
+                            {{ error.content.block.containerId.empty.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'content.block.containerId.empty.help'|trans }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[error.content.block.count.valid == false]">
+                <label class="control-label"
+                       for="form.content.block.count">{{ 'content.block.count.label'|trans }}</label>
+                <input class="form-control" type="text" id="formContentBlockCount" name="form.content.block.count"
+                       ng-model="form.content.block.count">
+
+                <p class="help-block error" ng-show="!error.content.block.count.valid">*
+                    {% verbatim %}
+                    {{ error.content.block.count.message }}
+                    {% endverbatim %}
+                </p>
+            </div>
+            <div class="checkbox" ng-show="form.typeSettings.id == 3">
+                <label>
+                    <input type="checkbox" id="formContentBlockUseCustomTmpl" name="form.content.block.useCustomTmpl"
+                           ng-model="form.content.block.useCustomTmpl">{{ 'content.block.useCustomTmpl.label'|trans }}
+                </label>
+            </div>
+            <div ng-show="form.content.block.useCustomTmpl">
+                <fieldset>
+                    <div class="form-group" ng-class="{true: 'has-error'}[error.content.block.pathTmpl.valid == false]">
+                        <label class="control-label"
+                               for="form.content.block.pathTmpl">{{ 'content.block.pathTmpl.label'|trans }}</label>
+                        <input class="form-control" type="text" id="formContentBlockPathTmpl"
+                               name="form.content.block.pathTmpl" ng-model="form.content.block.pathTmpl">
+
+                        <p class="help-block error" ng-show="!error.content.block.pathTmpl.valid">*
+                            {% verbatim %}
+                            {{ error.content.block.pathTmpl.message }}
+                            {% endverbatim %}
+                        </p>
+
+                        <p class="help-block">{{ 'content.block.pathTmpl.help'|trans }}</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group"
+                                 ng-class="{true: 'has-error'}[error.content.block.idTmpl.slider.valid == false]">
+                                <label class="control-label height_label"
+                                       for="form.content.block.idTmpl.slider">{{ 'content.block.idTmpl.slider.label'|trans }}</label>
+                                <input class="form-control" type="text" id="formContentBlockIdTmplSlider"
+                                       name="form.content.block.idTmpl.slider"
+                                       ng-model="form.content.block.idTmpl.slider">
+
+                                <p class="help-block error" ng-show="!error.content.block.idTmpl.slider.valid">*
+                                    {% verbatim %}
+                                    {{ error.content.block.idTmpl.slider.message }}
+                                    {% endverbatim %}
+                                </p>
+
+                                <p class="help-block">{{ 'content.block.idTmpl.slider.help'|trans }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group"
+                                 ng-class="{true: 'has-error'}[error.content.block.idTmpl.carousel.valid == false]">
+                                <label class="control-label height_label"
+                                       for="form.content.block.idTmpl.carousel">{{ 'content.block.idTmpl.carousel.label'|trans }}</label>
+                                <input class="form-control" type="text" id="formContentBlockIdTmplCarousel"
+                                       name="form.content.block.idTmpl.carousel"
+                                       ng-model="form.content.block.idTmpl.carousel">
+
+                                <p class="help-block error" ng-show="!error.content.block.idTmpl.carousel.valid">*
+                                    {% verbatim %}
+                                    {{ error.content.block.idTmpl.carousel.message }}
+                                    {% endverbatim %}
+                                </p>
+
+                                <p class="help-block">{{ 'content.block.idTmpl.carousel.help'|trans }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group"
+                                 ng-class="{true: 'has-error'}[error.content.block.idTmpl.tile.valid == false]">
+                                <label class="control-label height_label"
+                                       for="form.content.block.idTmpl.tile">{{ 'content.block.idTmpl.tile.label'|trans }}</label>
+                                <input class="form-control" type="text" id="formContentBlockIdTmplTile"
+                                       name="form.content.block.idTmpl.tile"
+                                       ng-model="form.content.block.idTmpl.tile">
+
+                                <p class="help-block error" ng-show="!error.content.block.idTmpl.tile.valid">*
+                                    {% verbatim %}
+                                    {{ error.content.block.idTmpl.tile.message }}
+                                    {% endverbatim %}
+                                </p>
+
+                                <p class="help-block">{{ 'content.block.idTmpl.tile.help'|trans }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group"
+                                 ng-class="{true: 'has-error'}[error.content.block.idTmpl.empty.valid == false]">
+                                <label class="control-label"
+                                       for="form.content.block.idTmpl.empty">{{ 'content.block.idTmpl.empty.label'|trans }}</label>
+                                <input class="form-control" type="text" id="formContentBlockIdTmplEmpty"
+                                       name="form.content.block.idTmpl.empty"
+                                       ng-model="form.content.block.idTmpl.empty">
+
+                                <p class="help-block error" ng-show="!error.content.block.idTmpl.empty.valid">*
+                                    {% verbatim %}
+                                    {{ error.content.block.idTmpl.empty.message }}
+                                    {% endverbatim %}
+                                </p>
+
+                                <p class="help-block">{{ 'content.block.idTmpl.empty.help'|trans }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

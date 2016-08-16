@@ -1,0 +1,6 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+<li ng-class="{true: 'disabled'}[steps[{{ step }}].disabled]">
+    <a href="#step{{ step }}" ng-click="Click.Tab({{ step }})">
+        {{ 'generator.tab'|trans }}
+    </a>
+</li>

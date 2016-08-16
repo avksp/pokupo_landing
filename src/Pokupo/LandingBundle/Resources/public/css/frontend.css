@@ -1,0 +1,65 @@
+#content{
+    padding: 20px 0;
+}
+.b-catalog__items.titles .b-catalog__item, .b-catalog__items.magazine .b-catalog__item{
+    width: 100%;
+}
+.b-catalog__items.titles .b-item__order-button {
+    left: 82%;
+}
+.b-catalog__items.magazine .b-item__order-button {
+    left: 81%;
+}
+.b-catalog__items.titles .b-item__description {
+    width: 47%;
+}
+.b-catalog__items.titles .b-item__price {
+    left: 68%;
+}
+.b-catalog__items.magazine .b-item .responsive-holder{
+    width: 40%;
+}
+.carouselBlock{
+    clear: both;
+}
+.header .logo {
+    background: url("../images/logo/logo_beta.png") 50% 50% no-repeat;
+}
+.fotorama__html div,
+.fotorama__html a {
+  display: block;
+  height: 100%;
+  /* Transparent links are not clickable in IE,
+     but non-existent background fixes this.
+    (Put an empty 1×1 image here to avoid
+     errors in console.) */
+  background: url(_.gif);
+}
+#dialog-form-batch textarea[name=comment]{
+    height: 170px;
+}
+#loadingContainer div{
+  position:fixed;
+  left: 0;
+  top: 0; 
+  height:100%;
+  width:100%;
+  background:#fff;
+  opacity:0.6;
+}
+#loadingContainer img {
+  display:block;
+  position:absolute;
+  right:50%;
+  top:50%;
+  color:#fff;
+  padding:5px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor:default;
+  z-index: 1000;
+}
+#siteMap ul > li >ul{
+    padding-left: 30px;
+}

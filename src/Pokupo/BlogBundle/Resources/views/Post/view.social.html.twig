@@ -1,0 +1,28 @@
+<div class="social-likes">
+<ul class="socials">
+  <li><a href="javascript:void(0);" class="btn btn-social btn-social__vk">Посетить<i class="icon"></i></a>
+  </li>
+  <li>
+      <a href="javascript:void(0);" class="btn btn-social btn-social__gp"
+        href="{{ 'https://plus.google.com/share?url=' ~  url('_blog_view', { 'slug' : post.slug }) }}">
+        Google+
+      <i class="icon"></i>
+      </a>
+  </li>
+  <li>
+      <a href="javascript:void(0);" class="btn btn-social btn-social__lj" href="{{ 'http://www.linkedin.com/shareArticle?mini=true&url=' ~
+          url('_blog_view', { 'slug' : post.slug }) ~ '&title=' ~ post | url_encode(true)  ~ '&summary=' ~
+          post.intro | striptags | raw | truncate(150) | url_encode(true) }}">
+              Linked in
+          <i class="icon"></i>
+      </a>
+  </li>
+  <li>
+      <a href="javascript:void(0);" class="btn btn-social btn-social__tw"
+       href="{{ 'http://twitter.com/home?status=' ~ post | url_encode(true) ~ ' ' ~
+       url('_blog_view', { 'slug' : post.slug }) }}"> {#~ ' via @' ~ twitter#}
+        Twitter
+      <i class="icon"></i></a>
+  </li>
+</ul>
+</div>

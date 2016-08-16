@@ -1,0 +1,83 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'authentication.title'|trans }}</h2>
+
+        <div class="form-group" ng-class="{true: 'has-error'}[error.authentication.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label"
+                   for="form.authentication.containerId">{{ 'authentication.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formAuthenticationContainerId"
+                   name="form.authentication.containerId" ng-model="form.authentication.containerId">
+
+            <p class="help-block error" ng-show="!error.authentication.containerId.valid">*
+                {% verbatim %}
+                {{ error.authentication.containerId.message }}
+                {% endverbatim %}
+            </p>
+
+            <p class="help-block">{{ 'authentication.containerId.help'|trans }}</p>
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   for="form.authentication.https">{{ 'authentication.https.label'|trans }}</label>
+            <br/>
+            <label class="radio-inline">
+                <input type="radio" id="formAuthenticationHttps" name="form.authentication.https"
+                       ng-model="form.authentication.https" value="always">{{ 'authentication.always.label'|trans }}
+            </label>
+            <label class="radio-inline">
+                <input type="radio" id="formAuthenticationHttps" name="form.authentication.https"
+                       ng-model="form.authentication.https" value="login">{{ 'authentication.login.label'|trans }}
+            </label>
+            <label class="radio-inline">
+                <input type="radio" id="formAuthenticationHttps" name="form.authentication.https"
+                       ng-model="form.authentication.https" value="never">{{ 'authentication.never.label'|trans }}
+            </label>
+            <p class="help-block error" ng-show="!error.authentication.https.valid">*
+                {% verbatim %}
+                {{ error.authentication.https.message }}
+                {% endverbatim %}
+            </p>
+        </div>
+        <hr/>
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formAuthenticationUseCustomTmpl" name="form.authentication.useCustomTmpl"
+                       ng-model="form.authentication.useCustomTmpl">{{ 'authentication.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.authentication.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.authentication.pathTmpl.valid == false]">
+                    <label class="control-label"
+                           for="form.authentication.pathTmpl">{{ 'authentication.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formAuthenticationPathTmpl"
+                           name="form.authentication.pathTmpl" ng-model="form.authentication.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.authentication.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.authentication.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'authentication.pathTmpl.help'|trans }}</p>
+                </div>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.authentication.idTmpl.valid == false]">
+                    <label class="control-label"
+                           for="form.authentication.idTmpl">{{ 'authentication.idTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formAuthenticationIdTmpl"
+                           name="form.authentication.idTmpl" ng-model="form.authentication.idTmpl">
+
+                    <p class="help-block error" ng-show="!error.authentication.idTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.authentication.idTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>

@@ -1,0 +1,64 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Pokupo\MenuBundle\Entity\Menu
+    namespace_prefix: Pokupo
+    concurrency_lock: ~
+    bundle_name: MenuBundle
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: List for MenuBundle
+            display: [ name, alias, is_active ]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+                view:
+                    label:    Перейти к списку
+                    icon:     fa fa-list
+                    route:    Pokupo_MenuBundle_Menu_set_menu_id
+                    params:
+                        menu_id: "{{Menu.id}}"
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: [ name, alias, is_active ]
+    new:
+        params:
+            title: New menu
+            display: [ name, alias, is_active ]
+            actions:
+                save: ~
+                save-and-add: ~
+                list: ~
+    edit:
+        params:
+            title: "Edit menu \"%object%\"|{ %object%: Menu.name }|"
+            display: [ name, alias, is_active ]
+            actions:
+                save: ~
+                save-and-list: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Menu.name }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

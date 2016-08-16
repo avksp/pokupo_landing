@@ -1,0 +1,4 @@
+services:
+#    pokupo_landing.example:
+#        class: Pokupo\LandingBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

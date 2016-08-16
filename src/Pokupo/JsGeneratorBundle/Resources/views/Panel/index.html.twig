@@ -1,0 +1,112 @@
+{% extends 'PokupoLandingBundle:Templates:base.html.twig' %}
+
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets filter='cssrewrite,?yui_css' output='assetic/css/compiled/components.jsgenerator.min.css'
+    'bundles/pokupojsgenerator/css/lib/bootstrap.css'
+    'bundles/pokupojsgenerator/css/lib/bootstrap.vertical-tabs.min.css'
+    'bundles/pokupojsgenerator/css/jsGenerator.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="all" />
+    {% endstylesheets %}
+{% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('bundles/pokupojsgenerator/js/lib/angular.min.js') }}" type="text/javascript"></script>
+
+        {% javascripts filter='?yui_js' output='assetic/js/compiled/components.jsgenerator.min.js'
+        'bundles/pokupojsgenerator/js/lib/bootstrap.min.js'
+        'bundles/pokupojsgenerator/js/app/model/theme.js'
+        'bundles/pokupojsgenerator/js/app/model/type.settings.js'
+        'bundles/pokupojsgenerator/js/app/model/search.js'
+        'bundles/pokupojsgenerator/js/app/model/search.advanced.js'
+        'bundles/pokupojsgenerator/js/app/model/cart.info.js'
+        'bundles/pokupojsgenerator/js/app/model/user.info.js'
+        'bundles/pokupojsgenerator/js/app/model/catalog.js'
+        'bundles/pokupojsgenerator/js/app/model/content.js'
+        'bundles/pokupojsgenerator/js/app/model/goods.js'
+        'bundles/pokupojsgenerator/js/app/model/authentication.js'
+        'bundles/pokupojsgenerator/js/app/model/breadcrumbs.js'
+        'bundles/pokupojsgenerator/js/app/model/cart.goods.js'
+        'bundles/pokupojsgenerator/js/app/model/profile.js'
+        'bundles/pokupojsgenerator/js/app/model/registration.js'
+        'bundles/pokupojsgenerator/js/app/model/registration.seller.js'
+        'bundles/pokupojsgenerator/js/app/model/order.js'
+        'bundles/pokupojsgenerator/js/app/model/order.list.js'
+        'bundles/pokupojsgenerator/js/app/model/favorites.js'
+        'bundles/pokupojsgenerator/js/app/model/message.js'
+        'bundles/pokupojsgenerator/js/app/model/cart.goods.cabinet.js'
+        'bundles/pokupojsgenerator/js/app/model/payment.js'
+        'bundles/pokupojsgenerator/js/app/model/menu.cabinet.js'
+        'bundles/pokupojsgenerator/js/app/model/shop.info.js'
+        'bundles/pokupojsgenerator/js/app/service/loader.js'
+        'bundles/pokupojsgenerator/js/app/service/event.dispatcher.js'
+        'bundles/pokupojsgenerator/js/app/js.generator.js'
+        'bundles/pokupojsgenerator/js/app/app.js'
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <script type="text/javascript">
+            var ThemeList = {};
+            {% for theme in themeList %}
+            ThemeList[{{ theme.id }}] = ({
+                id: {{ theme.id }},
+                alias: '{{ theme.alias }}',
+                customSettings: {{ theme.customSettings|json_encode|raw }}
+            })
+            {% endfor %}
+        </script>
+    {% endblock %}
+
+{% block body %}
+    <div ng-app="js-generator" id="jsGenerator">
+        <div class="container" ng-controller="JsGeneratorCtrl" ng-init="pathToCreate = '{{ path('pokupo_js_Generator_create') }}'; form.shopId = {{ shopId }}">
+            <div class="row">
+                <h1>{{ 'header'|trans }}</h1>
+                <hr>
+                {% include 'PokupoJsGeneratorBundle:Panel:_progressBar.html.twig' %}
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    {% include 'PokupoJsGeneratorBundle:Panel:_wizard.html.twig' %}
+                </div>
+                <div class="col-xs-12 col-sm-9" >
+                    <div class="tab-content">
+                        {#{% include 'PokupoJsGeneratorBundle:Panel:tab/_tmpl.html.twig' with {'step': 1} %}#}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_typeSettings.html.twig' with {'step': 2} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_choiceWidget.html.twig' with {'step': 3} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_shopInfo.html.twig' with {'step': 4} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_content.html.twig' with {'step': 5} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_promoBlock.html.twig' with {'step': 6} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_catalog.html.twig' with {'step': 7} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_breadcrumbs.html.twig' with {'step': 8} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_goods.html.twig' with {'step': 9} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_relatedGoods.html.twig' with {'step': 10} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_order.html.twig' with {'step': 11} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_payment.html.twig' with {'step': 12} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_cartGoods.html.twig' with {'step': 13} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_registration.html.twig' with {'step': 14} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_registrationSeller.html.twig' with {'step': 15} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_authentication.html.twig' with {'step': 16} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_menuCabinet.html.twig' with {'step': 17} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_profile.html.twig' with {'step': 18} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_cartGoodsCabinet.html.twig' with {'step': 19} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_orderList.html.twig' with {'step': 20} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_favorites.html.twig' with {'step': 21} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_message.html.twig' with {'step': 22} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_cartInfo.html.twig' with {'step': 23} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_userInfo.html.twig' with {'step': 24} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_searchWidget.html.twig' with {'step': 25} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_searchResult.html.twig' with {'step': 26} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_advansedSearchWidget.html.twig' with {'step': 27} %}
+                        {% include 'PokupoJsGeneratorBundle:Panel:tab/_generator.html.twig' with {'step': 28} %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+

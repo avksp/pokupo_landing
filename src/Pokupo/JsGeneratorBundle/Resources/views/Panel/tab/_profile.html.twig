@@ -1,0 +1,94 @@
+{% trans_default_domain 'PokupoJsGeneratorBundle' %}
+
+<div class="tab-pane" id="step{{ step }}">
+    <div class="well">
+        <h2 class="StepTitle">{{ 'profile.title'|trans }}</h2>
+        <div class="form-group" ng-class="{true: 'has-error'}[error.profile.containerId.valid == false]" ng-show="form.typeSettings.id == 3">
+            <label class="control-label" for="form.profile.containerId">{{ 'profile.containerId.label'|trans }}</label>
+            <input class="form-control" type="text" id="formProfileContainerId" name="form.profile.containerId"
+                   ng-model="form.profile.containerId">
+
+            <p class="help-block error" ng-show="!error.profile.containerId.valid">*
+                {% verbatim %}
+                {{ error.profile.containerId.message }}
+                {% endverbatim %}
+            </p>
+
+            <p class="help-block">{{ 'profile.containerId.help'|trans }}</p>
+        </div>
+
+        <div class="checkbox" ng-show="form.typeSettings.id == 3">
+            <label>
+                <input type="checkbox" id="formProfileUseCustomTmpl" name="form.profile.useCustomTmpl"
+                       ng-model="form.profile.useCustomTmpl">{{ 'profile.useCustomTmpl.label'|trans }}
+            </label>
+        </div>
+        <div ng-show="form.profile.useCustomTmpl">
+            <fieldset>
+                <div class="form-group" ng-class="{true: 'has-error'}[error.profile.pathTmpl.valid == false]">
+                    <label class="control-label" for="form.profile.pathTmpl">{{ 'profile.pathTmpl.label'|trans }}</label>
+                    <input class="form-control" type="text" id="formProfilePathTmpl" name="form.profile.pathTmpl"
+                           ng-model="form.profile.pathTmpl">
+
+                    <p class="help-block error" ng-show="!error.profile.pathTmpl.valid">*
+                        {% verbatim %}
+                        {{ error.profile.pathTmpl.message }}
+                        {% endverbatim %}
+                    </p>
+
+                    <p class="help-block">{{ 'profile.pathTmpl.help'|trans }}</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.profile.idTmpl.personal.valid == false]">
+                            <label class="control-label" for="form.profile.idTmpl.personal">{{ 'profile.idTmpl.personal.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formProfileIdTmplPersonal" name="form.profile.idTmpl.personal" ng-model="form.profile.idTmpl.personal">
+                            <p class="help-block error" ng-show="!error.profile.idTmpl.personal.valid">*
+                                {% verbatim %}
+                                {{ error.profile.idTmpl.personal.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.profile.idTmpl.delivery.valid == false]">
+                            <label class="control-label" for="form.profile.idTmpl.delivery">{{ 'profile.idTmpl.delivery.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formProfileIdTmplDelivery" name="form.profile.idTmpl.delivery" ng-model="form.profile.idTmpl.delivery">
+                            <p class="help-block error" ng-show="!error.profile.idTmpl.delivery.valid">*
+                                {% verbatim %}
+                                {{ error.profile.idTmpl.delivery.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.profile.idTmpl.deliveryForm.valid == false]">
+                            <label class="control-label" for="form.profile.idTmpl.deliveryForm">{{ 'profile.idTmpl.deliveryForm.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formProfileIdTmplDeliveryForm" name="form.profile.idTmpl.deliveryForm" ng-model="form.profile.idTmpl.deliveryForm">
+                            <p class="help-block error" ng-show="!error.profile.idTmpl.deliveryForm.valid">*
+                                {% verbatim %}
+                                {{ error.profile.idTmpl.deliveryForm.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{true: 'has-error'}[error.profile.idTmpl.security.valid == false]">
+                            <label class="control-label" for="form.profile.idTmpl.security">{{ 'profile.idTmpl.security.label'|trans }}</label>
+                            <input class="form-control" type="text" id="formProfileIdTmplSecurity" name="form.profile.idTmpl.security" ng-model="form.profile.idTmpl.security">
+                            <p class="help-block error" ng-show="!error.profile.idTmpl.security.valid">*
+                                {% verbatim %}
+                                {{ error.profile.idTmpl.security.message }}
+                                {% endverbatim %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div ng-show="form.typeSettings.id != 3">
+            <p>Нет доступных настроек виджета</p>
+        </div>
+    </div>
+    <a class="btn btn-default btn-lg next" href="" data-ng-click="Click.Next({{ step }})">{{ 'button.next'|trans }}</a>
+</div>
